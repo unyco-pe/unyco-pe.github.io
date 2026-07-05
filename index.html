@@ -192,7 +192,7 @@ footer .logo-h{ height:21px; }
 /* ============================================================
    MANIFIESTO · una sola frase, palabra por palabra
    ============================================================ */
-.manifesto{ padding-block:clamp(120px, 22vh, 240px); }
+.manifesto{ padding-top:clamp(120px, 22vh, 240px); padding-bottom:clamp(70px, 12vh, 130px); }
 .manifesto-grid{
   display:grid; grid-template-columns:1.4fr .9fr;
   gap:clamp(30px,6vw,80px); align-items:center;
@@ -200,9 +200,9 @@ footer .logo-h{ height:21px; }
 .manifesto p{
   font-family:var(--display);
   font-weight:600;
-  font-size:clamp(28px, 5vw, 62px);
-  line-height:1.08; letter-spacing:-.02em;
-  max-width:18ch;
+  font-size:clamp(32px, 6vw, 80px);
+  line-height:1.02; letter-spacing:-.03em;
+  max-width:16ch;
 }
 .manifesto .w{ display:inline-block; transition:opacity .1s; }
 .js-anim .manifesto .w{ opacity:.12; }
@@ -219,13 +219,14 @@ footer .logo-h{ height:21px; }
    SERVICIOS · lista editorial, no grilla genérica
    ============================================================ */
 .section-head{
-  display:flex; align-items:baseline; gap:18px;
+  display:flex; flex-direction:column; gap:16px;
   border-bottom:1px solid rgba(246,242,233,.16);
-  padding-bottom:18px; margin-bottom:8px;
+  padding-bottom:26px; margin-bottom:clamp(28px,4.5vh,52px);
 }
 .section-head h2{
   font-family:var(--display); font-weight:700;
-  font-size:clamp(26px, 4vw, 44px); letter-spacing:-.02em;
+  font-size:clamp(34px, 6.5vw, 76px); letter-spacing:-.03em; line-height:.98;
+  max-width:20ch;
 }
 .services{ padding-block:clamp(60px,10vh,120px); }
 .svc{
@@ -299,11 +300,21 @@ footer .logo-h{ height:21px; }
   position:relative; aspect-ratio:4/5; border-radius:6px; overflow:hidden;
   background:var(--base);
 }
+/* Velo unificador: iguala fotos de luces y fondos distintos. Al reposo,
+   todas se ven como una familia (veladas y algo desaturadas); al pasar
+   el mouse, la pieza "despierta" (el velo se levanta y el color satura). */
+.cat-item::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(58,58,57,.05), rgba(58,58,57,.28));
+  transition:opacity .5s ease;
+}
+.cat-item:hover::after{ opacity:0; }
 .cat-item img{
   width:100%; height:100%; object-fit:cover; display:block;
-  transition:transform .6s cubic-bezier(.2,.7,.2,1);
+  filter:saturate(.9) contrast(1.03);
+  transition:transform .6s cubic-bezier(.2,.7,.2,1), filter .5s ease;
 }
-.cat-item:hover img{ transform:scale(1.06); }
+.cat-item:hover img{ transform:scale(1.06); filter:saturate(1.06) contrast(1); }
 
 /* ============================================================
    DETRÁS DE CÁMARA · tira chica de fotos del taller
@@ -316,7 +327,10 @@ footer .logo-h{ height:21px; }
 .behind-hero img{
   width:100%; height:clamp(300px,44vh,460px);
   object-fit:cover; display:block;
+  filter:saturate(.92) contrast(1.03);
+  transition:filter .6s ease, transform .6s ease;
 }
+.behind-hero:hover img{ filter:saturate(1.04) contrast(1); }
 .behind-hero figcaption{
   position:absolute; left:24px; bottom:24px;
   color:var(--cream);
@@ -419,6 +433,76 @@ footer{
 footer .tag{ font-size:11px; }
 
 /* ============================================================
+   CÓMO TRABAJAMOS · flujo de 4 pasos, minimo texto
+   ============================================================ */
+.proceso{ padding-block:clamp(60px,10vh,120px); }
+.flujo{
+  list-style:none; margin:clamp(34px,5vh,56px) 0 0; padding:0;
+  display:grid; grid-template-columns:repeat(4, 1fr);
+  gap:clamp(20px,3vw,40px);
+  position:relative;
+}
+/* Linea que conecta los pasos (solo desktop) */
+.flujo::before{
+  content:""; position:absolute; top:34px; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(245,241,232,.22) 12%, rgba(245,241,232,.22) 88%, transparent);
+}
+.paso{ display:flex; flex-direction:column; gap:8px; position:relative; }
+.paso-n{
+  font-family:var(--mono); font-size:14px; letter-spacing:.1em;
+  color:var(--ground); background:var(--ambar);
+  width:44px; height:44px; border-radius:50%;
+  display:grid; place-content:center; font-weight:700;
+  margin-bottom:14px;
+}
+.paso-t{
+  font-family:var(--display); font-weight:700;
+  font-size:clamp(24px,3.4vw,40px); letter-spacing:-.02em; line-height:1;
+}
+.paso-d{ color:var(--cream-dim); font-size:15px; line-height:1.5; max-width:22ch; }
+
+/* ============================================================
+   CTA corto al final del portafolio
+   ============================================================ */
+.port-cta{
+  margin-top:clamp(44px,7vh,70px);
+  font-family:var(--display); font-weight:600;
+  font-size:clamp(19px,2.6vw,28px); letter-spacing:-.015em;
+}
+.port-cta a{
+  color:var(--ambar); white-space:nowrap;
+  border-bottom:2px solid var(--ambar); padding-bottom:2px;
+  transition:opacity .3s;
+}
+.port-cta a:hover{ opacity:.75; }
+
+/* ============================================================
+   CINTA (ticker) · movimiento continuo, ampersand oficial
+   ============================================================ */
+.ticker{
+  overflow:hidden;
+  border-top:1px solid rgba(245,241,232,.14);
+  border-bottom:1px solid rgba(245,241,232,.14);
+  padding-block:22px;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ticker-track{ display:flex; width:max-content; animation:ticker-scroll 42s linear infinite; }
+.ticker-group{ display:flex; align-items:center; flex:none; }
+.tick-word{
+  font-family:var(--display); font-weight:600;
+  font-size:clamp(20px,2.4vw,30px); letter-spacing:-.01em;
+  color:var(--cream); white-space:nowrap; padding-inline:6px;
+}
+.tick-amp{ width:clamp(20px,2.2vw,28px); height:auto; margin-inline:22px; flex:none; }
+.tick-amp use{ fill:var(--ambar); }
+@keyframes ticker-scroll{ to{ transform:translateX(-50%); } }
+.ticker:hover .ticker-track{ animation-play-state:paused; }
+@media (prefers-reduced-motion:reduce){
+  .ticker-track{ animation:none; transform:translateX(-25%); }
+}
+
+/* ============================================================
    REVEALS al hacer scroll (los activa GSAP)
    ============================================================ */
 /* Estado oculto inicial SOLO si la animacion esta activa.
@@ -445,6 +529,8 @@ footer .tag{ font-size:11px; }
   .nav-links{ display:none; }
   .manifesto-grid{ grid-template-columns:1fr; gap:40px; }
   .manifesto-amp{ max-width:200px; order:-1; }
+  .flujo{ grid-template-columns:1fr 1fr; gap:32px 24px; }
+  .flujo::before{ display:none; }
 }
 
 /* Respeta a quien prefiere menos movimiento */
@@ -480,6 +566,7 @@ footer .tag{ font-size:11px; }
   <!-- Navegacion a secciones (se oculta sola en celular) -->
   <nav class="nav-links" aria-label="Secciones">
     <a href="#servicios">Servicios</a>
+    <a href="#proceso">Proceso</a>
     <a href="#trabajo">Trabajo</a>
     <a href="#marcas">Marcas</a>
   </nav>
@@ -544,6 +631,20 @@ footer .tag{ font-size:11px; }
   </div>
 </section>
 
+
+<!-- ============ CINTA (ticker) ============ -->
+<!-- Franja en movimiento continuo. Usa el ampersand oficial como separador.
+     Para cambiar las palabras, edita la lista dentro del PRIMER grupo y copia
+     los mismos cambios en el SEGUNDO (son un duplicado necesario para que el
+     bucle no tenga saltos). -->
+<div class="ticker" aria-hidden="true">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="ampSep" viewBox="0 0 204.7 189.44"><path d="M145.16,127.55c2.66-4.43,5.09-9,7.21-13.74,2.29-5.12,7.75-22.71,11.48-25.14,4.96-3.24,9.99,3.77,14.52,5.98,11.25,5.5,22.37-.61,25.47-12.24,1.7-6.37.7-11.92-1.63-18.02-11.07-28.97-55.27-17.63-70.14,2.15-9.23,12.28,2.27,16.96,2.24,28.53-.01,5.58-3.88,13.58-6.81,18.31-.84.2-9.84-9.14-11.25-10.59-4.76-4.9-14.42-14.21-17.97-19.29-.79-1.13-1.5-2.02-1.29-3.53,1.54.04,2.79-.67,4.05-1.42,8.97-5.32,20.99-16.19,24.7-26.05C145.44.22,52.58-21.3,31.37,26.86c-8.66,19.67-3.89,37.21,9.06,53.35-5.05,4.92-11.51,7.92-16.96,12.63C.31,112.86-9.59,142.25,11.88,167.99c23.7,28.42,65.54,26.45,94.05,6.62,8.5-5.91,15.15-14.39,21.63-22.41,6.35-7.86,12.41-16,17.6-24.65ZM67.46,33.4c4.32-5.94,13.7-7.76,19.05-2.03,7.82,8.37,1.47,25.63-8.36,29.87-7.09-6.46-17.81-18.04-10.69-27.84ZM58.89,150.54c-2.66-1.68-8.53-8.24-10.19-11.01-4.7-7.88-4.44-14.2.02-22.08,1.37-2.41,10.06-13.93,12.86-12.33l36.05,38.06c-8.62,8.02-28.24,14-38.73,7.35Z"/></symbol></defs></svg>
+  <div class="ticker-track">
+    <div class="ticker-group"><span class="tick-word">Trofeos</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Impresión 3D</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Escaneo 3D</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Grabado láser</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Maquetas</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Prototipos</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Merch corporativo</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Repuestos</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Luminarias</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg></div>
+    <div class="ticker-group"><span class="tick-word">Trofeos</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Impresión 3D</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Escaneo 3D</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Grabado láser</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Maquetas</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Prototipos</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Merch corporativo</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Repuestos</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg><span class="tick-word">Luminarias</span><svg class="tick-amp" viewBox="0 0 204.7 189.44" aria-hidden="true"><use href="#ampSep"/></svg></div>
+  </div>
+</div>
+
 <!-- ============ SERVICIOS ============ -->
 <section class="services wrap" id="servicios">
   <div class="section-head reveal">
@@ -595,6 +696,38 @@ footer .tag{ font-size:11px; }
     <div class="svc-meta tag">A medida</div>
     <div class="svc-desc">Lo que no entra en una categoría. Si se puede diseñar y fabricar, conversémoslo.</div>
   </div>
+</section>
+
+<!-- ============ CÓMO TRABAJAMOS ============ -->
+<!-- Cuatro pasos, texto minimo. Para editar: cambia el verbo (paso-t)
+     y la linea corta (paso-d) de cada uno. -->
+<section class="proceso wrap" id="proceso">
+  <div class="section-head reveal">
+    <span class="tag">Cómo trabajamos</span>
+    <h2>Tú traes el problema. Nosotros el resto.</h2>
+  </div>
+  <ol class="flujo">
+    <li class="paso reveal">
+      <span class="paso-n">01</span>
+      <span class="paso-t">Cuéntanos</span>
+      <span class="paso-d">Tu idea, tu pieza rota, tu problema.</span>
+    </li>
+    <li class="paso reveal">
+      <span class="paso-n">02</span>
+      <span class="paso-t">Diseñamos</span>
+      <span class="paso-d">Forma, material y precio antes de fabricar.</span>
+    </li>
+    <li class="paso reveal">
+      <span class="paso-n">03</span>
+      <span class="paso-t">Fabricamos</span>
+      <span class="paso-d">La técnica que la pieza pida.</span>
+    </li>
+    <li class="paso reveal">
+      <span class="paso-n">04</span>
+      <span class="paso-t">Lo tienes</span>
+      <span class="paso-d">Único, hecho aquí.</span>
+    </li>
+  </ol>
 </section>
 
 <!-- ============ PORTAFOLIO ============ -->
@@ -705,6 +838,11 @@ footer .tag{ font-size:11px; }
        <figure class="cat-item"><img src="fotos/3dgarage/repuestos/bici.jpg" alt="Bici" loading="lazy"></figure>
     </div>
   </div>
+
+  <!-- Llamado corto al final del portafolio -->
+  <p class="port-cta reveal">¿Tienes un proyecto parecido en mente?
+    <a href="https://wa.me/51967808331" target="_blank" rel="noopener">Escríbenos &#8594;</a>
+  </p>
 
 </section>
 
