@@ -1,0 +1,17 @@
+UN&CO. WEB V5
+Fecha: 17 de septiembre de 2026
+
+Cambios respecto a V3:
+- Portada: nueva frase principal, foto de merch reemplazada, sin etiquetas de prioridad.
+- Sin bordes rojos en catalogo. Trofeos con galeria propia en Merch y en Trofeos.
+- Trofeos: encabezado con dos fotos, mosaico de 8 + panoramica, Golf con video y serie.
+- Castana: solo el trofeo. Las piezas de cafeteria pasan a Encargos especiales en Merch.
+- Repuestos: pagina reescrita como portafolio visual + escaneo 3D + 8 materiales explicados.
+- Trabajos: indice de tres casos con narrativa. Nuevo caso proyectos/coolbox.html.
+- proyectos/reconocimientos.html redirige a Trofeos.
+- Archivos castaña-* renombrados a castana-* (la ñ rompia las rutas).
+V5:
+- Repuestos: Escaneo 3D sube, Galería baja al final, sin fotos repetidas.
+- Materiales con muestra de color y comparación de 1 a 5.
+- "También grabamos" eliminado; video CNC movido a "Taller propio" en la portada.
+- Carrusel de merch con mismo radio y recorte.

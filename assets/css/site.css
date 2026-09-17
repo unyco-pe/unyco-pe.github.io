@@ -548,3 +548,184 @@ a.example-card{display:block}
   background:#1d1e1b;aspect-ratio:4/5}
 .design-tile img,.design-tile video{width:100%;height:100%;object-fit:cover;display:block}
 .design-tile .work-label{background:rgba(245,241,232,.94)}
+
+/* Portada: dos áreas con el mismo peso y espacio para el titular completo. */
+.hero-sub{font-size:clamp(24px,4.8vw,36px);font-weight:700;max-width:29ch;text-wrap:balance}
+.hero{padding-bottom:116px}
+.home-routes .contact-card{gap:20px;min-width:0}
+.home-routes .page-visual{aspect-ratio:4/3}
+.home-routes .page-visual img{object-fit:contain;background:var(--surface)}
+.home-routes .contact-body{flex:1}
+.home-clients-note{margin-top:14px}
+.home-cian{background:var(--blue)}
+.home-cian-scale img{object-fit:contain;background:var(--surface)}
+.home-closing-note{margin-top:18px}
+#coolbox{scroll-margin-top:calc(var(--header) + 20px)}
+
+/* Repuestos, caso destacado y páginas de producto. */
+.repuestos-hero .page-copy h1{max-width:17ch;font-size:clamp(2.4rem,6vw,4.3rem)}
+.media-contain img{object-fit:contain;background:var(--surface)}
+.projects-feature .page-copy h1{font-family:var(--font-ui);font-size:1rem;letter-spacing:0;line-height:1.4;max-width:none;margin:0 0 24px}
+.projects-feature .page-copy h2{font-size:clamp(2.4rem,6vw,4.3rem);max-width:16ch;margin-top:12px}
+.projects-feature .page-visual{aspect-ratio:4/3}
+.product-hero .page-copy h1{max-width:14ch}
+.product-start-price{font-size:1.3rem;font-weight:700;margin-top:20px}
+.product-gallery .work-card{aspect-ratio:4/5;min-height:0;background:var(--surface)}
+.product-gallery .work-card img{object-fit:contain}
+#caso-repuesto{scroll-margin-top:var(--header)}
+
+.home-routes .home-route-repuesto img{object-fit:cover;object-position:center 42%}
+.repuestos-cover img{object-position:center 62%}
+.repuestos-gallery .work-card img{object-fit:contain;background:var(--surface)}
+.work-card video{width:100%;height:100%;object-fit:cover;display:block}
+#casos-recientes{scroll-margin-top:var(--header)}
+
+/* Jerarquía del home: Merch primero, Trofeos en vitrina y Repuestos como ruta técnica. */
+.home-priority-layout{display:grid;gap:12px}
+.home-spotlight-grid{display:grid;gap:12px}
+.home-priority-card{position:relative;overflow:hidden;padding:14px;gap:16px}
+.home-priority-card .page-visual{background:#e8e3d9}
+.home-priority-card .page-visual img{object-fit:cover;background:#e8e3d9}
+.home-priority-card .eyebrow{margin-bottom:2px}
+.home-priority-card--merch{background:var(--yellow);color:#262622;border-color:transparent}
+.home-priority-card--merch .eyebrow,.home-priority-card--merch p{color:rgba(38,38,34,.72)}
+.home-priority-card--merch .page-visual{aspect-ratio:16/11}
+.home-priority-card--trofeos{background:var(--surface)}
+.home-priority-card--trofeos .page-visual{aspect-ratio:4/5}
+.home-repuestos-band{display:grid;grid-template-columns:94px minmax(0,1fr);gap:14px;align-items:center;
+  padding:12px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.home-repuestos-media{width:94px;aspect-ratio:1/1;border-radius:12px;overflow:hidden;background:#ddd}
+.home-repuestos-media img{width:100%;height:100%;object-fit:cover;display:block}
+.home-repuestos-copy{min-width:0}
+.home-repuestos-copy h2{font-family:var(--font-display);font-size:clamp(1.45rem,6vw,2rem);line-height:1;
+  letter-spacing:-.035em;margin:4px 0 0}
+.home-repuestos-copy p{font-size:.85rem;color:var(--muted);margin-top:6px;max-width:52ch}
+.home-repuestos-band>strong{grid-column:2;font-size:.84rem}
+.product-card--trofeo{outline:2px solid var(--red);outline-offset:-2px}
+.catalog-card--featured{outline:2px solid var(--red);outline-offset:-2px}
+@media(min-width:700px){
+  .home-spotlight-grid{grid-template-columns:1.45fr .85fr}
+  .home-priority-card{padding:18px}
+  .home-repuestos-band{grid-template-columns:150px minmax(0,1fr) auto;gap:22px;padding:14px}
+  .home-repuestos-media{width:150px;aspect-ratio:4/3}
+  .home-repuestos-band>strong{grid-column:auto;white-space:nowrap;padding-right:10px}
+}
+@media(prefers-color-scheme:dark){
+  .home-priority-card--merch{background:var(--yellow);color:#262622}
+  .home-priority-card--trofeos,.home-repuestos-band{background:#242520}
+}
+
+
+/* ============================================================
+   v20: un solo lenguaje de medios y grillas sin huecos
+   ============================================================ */
+
+/* Todos los marcos de foto y video comparten radio y recorte. */
+:root{--r-media:10px}
+.page-visual,.case-media,.case-media-solo,.work-card,.product-photo img,.catalog-card-photo img,
+.workshop-photo,.workshop-video,.inline-video,.photo-strip figure,.design-tile,.proof-frame,
+.home-film,.process-feature-video,.visit-photo-frame,.home-repuestos-media,.tile{border-radius:var(--r-media)}
+.media-contain img,.home-routes .page-visual img,.home-cian-scale img,
+.repuestos-gallery .work-card img,.product-gallery .work-card img{object-fit:cover;background:none}
+
+/* Sin resaltado con borde: los trofeos se destacan con más fotos. */
+.product-card--trofeo,.catalog-card--featured{outline:0}
+
+/* Mosaico base: celdas iguales, cantidad de piezas múltiplo de las columnas. */
+.mosaic{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.tile{position:relative;margin:0;overflow:hidden;background:#e4dfd5;aspect-ratio:4/5}
+.tile img,.tile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.mosaic--34 .tile{aspect-ratio:3/4}
+.mosaic--916 .tile{aspect-ratio:9/16}
+.tile--wide{grid-column:span 2;aspect-ratio:16/10}
+@media(min-width:960px){
+  .mosaic--4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .mosaic--4 .tile--wide{aspect-ratio:auto}
+}
+@media(prefers-color-scheme:dark){.tile{background:#2a2b26}}
+
+/* Medios de baja resolución: nunca más anchos que su archivo. */
+.mosaic--small{max-width:760px}
+
+/* Encabezado de página con dos fotos verticales en vez de una con relleno. */
+.hero-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-pair .tile{aspect-ratio:4/5}
+
+/* Caso a ancho completo: texto arriba, mosaico abajo. */
+.case-block{display:grid;gap:18px}
+.case-block-head{display:grid;gap:8px}
+.case-block-head h3{font-family:var(--font-display);font-size:clamp(1.6rem,5vw,2.4rem);line-height:1;letter-spacing:-.03em;margin:0}
+.case-block-head p{color:var(--muted);max-width:52ch}
+@media(min-width:700px){.case-block-head{grid-template-columns:1fr 1fr;gap:40px;align-items:end}.case-block-head p{justify-self:end}}
+
+/* Materiales explicados en simple. */
+.material-grid{display:grid;gap:10px;grid-template-columns:1fr}
+.material{padding:18px;border:1px solid var(--line);border-radius:var(--r-media);background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.material h3{font-family:var(--font-display);font-size:1.35rem;letter-spacing:-.025em;margin:0}
+.material p{font-size:.9rem;color:var(--muted)}
+.material .material-use{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink)}
+@media(min-width:700px){.material-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:960px){.material-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(prefers-color-scheme:dark){.material{background:#242520}}
+
+/* Lista de servicios en dos columnas, sin numeración. */
+.need-grid{display:grid;gap:0;border-top:1px solid var(--line-strong)}
+.need{padding:16px 0;border-bottom:1px solid var(--line)}
+.need h3{font-family:var(--font-display);font-size:1.25rem;letter-spacing:-.025em;margin:0}
+.need p{font-size:.9rem;color:var(--muted);margin-top:4px;max-width:44ch}
+@media(min-width:700px){.need-grid{grid-template-columns:1fr 1fr;column-gap:40px}}
+
+/* Índice de trabajos: un caso por fila. */
+.case-index{display:grid;gap:44px}
+.case-row{display:grid;gap:18px;align-items:center}
+.case-row-media{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.case-row-copy{display:grid;gap:10px;align-content:center}
+.case-row-copy h2{font-family:var(--font-display);font-size:clamp(1.9rem,5vw,3rem);line-height:.98;letter-spacing:-.035em;margin:0}
+.case-row-copy p{color:var(--muted);max-width:44ch}
+.case-row-copy .btn{justify-self:start;margin-top:6px}
+@media(min-width:800px){
+  .case-index{gap:72px}
+  .case-row{grid-template-columns:1.15fr .85fr;gap:48px}
+  .case-row:nth-child(even) .case-row-media{order:2}
+}
+
+/* Tarjeta de merch en portada: foto menos dominante. */
+.home-priority-card--merch .page-visual{aspect-ratio:16/10}
+.home-spotlight-grid{align-items:stretch}
+.home-priority-card .contact-body{flex:1}
+.home-priority-card .contact-body{align-content:start}
+.home-priority-card>strong{margin-top:auto}
+.tile--full{grid-column:1/-1;aspect-ratio:16/10}
+@media(min-width:960px){.tile--full{aspect-ratio:21/8}}
+.mosaic--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.theme-dark .case-block-head p{color:rgba(245,241,232,.76)}
+.mosaic--small .tile{aspect-ratio:4/5}
+a.mosaic{color:inherit}
+.case-copy .btn{justify-self:start;margin-top:6px}
+.home-priority-card .contact-body{flex:none}
+.home-priority-card--merch .page-visual{flex:1 1 auto;aspect-ratio:auto;min-height:240px;position:relative}
+.home-priority-card--merch .page-visual img{position:absolute;inset:0;width:100%;height:100%}
+@media(min-width:700px){
+  .workshop-media{align-items:stretch}
+  .workshop-photo{aspect-ratio:auto;height:100%}
+}
+.section-head h1{font-size:clamp(2.55rem,9vw,4.3rem);margin:0}
+@media(min-width:800px){.case-row:nth-child(even){grid-template-columns:.85fr 1.15fr}}
+.case-block-head h2{font-size:clamp(1.9rem,6vw,2.9rem);margin:0}
+.fab-dark-copy{color:var(--muted)}
+.theme-dark .fab-dark-copy{color:rgba(245,241,232,.76)}
+/* v21 */
+.material-swatch{height:44px;border-radius:calc(var(--r-media) - 4px);background:var(--swatch);border:1px solid var(--line);
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.10) 0 1px,transparent 1px 4px)}
+.meters{display:grid;gap:6px;margin-top:4px}
+.meter{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.78rem;color:var(--muted)}
+.dots{display:inline-flex;gap:4px}
+.dots i{width:9px;height:9px;border-radius:50%;background:var(--line-strong)}
+.dots i.on{background:var(--ink)}
+.material-note{margin-top:12px}
+.workshop-tiles .tile{aspect-ratio:3/4}
+@media(min-width:700px){.workshop-grid{grid-template-columns:.55fr 1.45fr}}
+/* carrusel de merch: mismo radio y recorte que el resto */
+.merch-hero .merch-carousel{border-radius:var(--r-media);box-shadow:none}
+.merch-hero .merch-slide{padding:0!important;background:#e4dfd5}
+.merch-hero .merch-slide img{object-fit:cover!important;object-position:center!important;border-radius:0!important}
