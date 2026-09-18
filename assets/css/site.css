@@ -729,3 +729,21 @@ a.mosaic{color:inherit}
 .merch-hero .merch-carousel{border-radius:var(--r-media);box-shadow:none}
 .merch-hero .merch-slide{padding:0!important;background:#e4dfd5}
 .merch-hero .merch-slide img{object-fit:cover!important;object-position:center!important;border-radius:0!important}
+/* v6.1: redes en contacto */
+.contact-socials{display:flex;flex-direction:column;gap:14px}
+.social-links{display:flex;flex-wrap:wrap;gap:8px}
+.social-links a{font-size:.85rem;font-weight:600;padding:8px 14px;border:1px solid var(--line-strong);border-radius:999px;text-decoration:none;color:var(--ink)}
+.social-links a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+@media(min-width:700px){.contact-mini-grid{grid-template-columns:1fr 1fr;align-items:stretch}.contact-card--ig{grid-row:span 2}}
+.contact-socials .social-links{margin-top:auto}
+/* v7: pasos con pie de foto */
+.mosaic--captions .tile{overflow:visible;background:none;aspect-ratio:auto}
+.mosaic--captions .tile video,.mosaic--captions .tile img{position:static;aspect-ratio:9/16;border-radius:var(--r-media);background:#e4dfd5}
+.mosaic--captions figcaption{margin-top:8px;font-size:.78rem;line-height:1.3;color:var(--muted)}
+.theme-dark .mosaic--captions figcaption{color:rgba(245,241,232,.7)}
+/* v7.1: los 5 pasos del caso, en tira */
+.steps-strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.steps-strip::-webkit-scrollbar{display:none}
+.steps-strip{scrollbar-width:none}
+.steps-strip .tile{flex:0 0 58%;scroll-snap-align:start;margin:0;position:relative;overflow:visible;background:none;aspect-ratio:auto}
+@media(min-width:760px){.steps-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible}.steps-strip .tile{flex:none}}

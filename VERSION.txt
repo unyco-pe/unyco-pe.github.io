@@ -1,4 +1,4 @@
-UN&CO. WEB V5
+UN&CO. WEB V7.1
 Fecha: 17 de septiembre de 2026
 
 Cambios respecto a V3:
@@ -15,3 +15,12 @@ V5:
 - Materiales con muestra de color y comparación de 1 a 5.
 - "También grabamos" eliminado; video CNC movido a "Taller propio" en la portada.
 - Carrusel de merch con mismo radio y recorte.
+- V5.1: Galería de Repuestos sin repetidas, 8 fotos en grilla 4x2.
+- V6: animación de apertura más rápida (arranca en DOMContentLoaded, 0.6s + stagger menor).
+- V6: LinkedIn y TikTok en el pie de página de todas las páginas y en el JSON-LD.
+- V6: franja de clientes movida de la portada al final de Trabajos.
+- V6.1: tarjeta de Redes (Instagram, LinkedIn, TikTok) en Contacto.
+- V7: caso en video "De la pieza rota a la serie final" (5 videos + foto de la serie) en Repuestos.
+- V7: galería sin las 3 primeras fotos, ahora 6 piezas en grilla de 3.
+- V7: videos recomprimidos a 1080px (3 MB en total) con poster propio.
+- V7.1: caso en 5 pasos (sin la foto de la serie), en fila de 5 en desktop y tira deslizable en móvil.
