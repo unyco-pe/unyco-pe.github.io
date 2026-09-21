@@ -747,3 +747,115 @@ a.mosaic{color:inherit}
 .steps-strip{scrollbar-width:none}
 .steps-strip .tile{flex:0 0 58%;scroll-snap-align:start;margin:0;position:relative;overflow:visible;background:none;aspect-ratio:auto}
 @media(min-width:760px){.steps-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible}.steps-strip .tile{flex:none}}
+
+/* Un&Co. Lab — entry points and lightweight product example. */
+.mobile-menu-inner{overflow-y:auto;gap:22px}
+.footer-meta{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.footer-taller{display:inline-flex;align-items:center;gap:5px;min-height:36px;font-size:.72rem;color:var(--muted2)}
+.footer-taller svg{flex:none;width:12px;height:12px}
+.footer-taller:hover{text-decoration:underline;text-underline-offset:4px;color:var(--ink)}
+.lab-feature{padding:64px 0 36px;background:var(--cream);scroll-margin-top:calc(var(--header) + 16px)}
+.lab-feature-grid{display:grid;gap:30px;align-items:center}
+.lab-feature-copy{display:flex;flex-direction:column;align-items:flex-start}
+.lab-kicker{display:flex;align-items:center;gap:12px;font-size:.8rem;font-weight:700;letter-spacing:.015em;margin-bottom:22px}
+.lab-new{background:var(--yellow);color:#282a27;padding:4px 8px;border-radius:5px;font-size:.61rem;letter-spacing:.06em;text-transform:uppercase}
+.lab-feature h2{font-family:var(--font-display);font-size:clamp(2.7rem,9.8vw,4.7rem);line-height:1.02;letter-spacing:-.045em;font-weight:700;margin:0 0 20px}
+.lab-feature h2 em{font-style:normal;color:var(--blue)}
+.lab-feature-copy>p{font-size:1rem;line-height:1.6;color:var(--muted);max-width:36ch;margin-bottom:26px}
+.lab-primary{background:#f7af41;border-color:#f7af41;color:#282a27;padding:13px 23px;gap:24px;min-height:50px;font-size:.94rem}
+.lab-primary:hover{background:#ffc064;border-color:#ffc064}
+.lab-primary:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.lab-primary>span{font-size:1.2rem}
+.lab-cta-note{font-size:.76rem;margin-top:12px;color:var(--muted2)}
+.lab-demo{--sample-color:#456d89;--sample-edge:#2c495c;--sample-logo-filter:none;position:relative;isolation:isolate;overflow:hidden;border-radius:var(--r-lg);background:#e4e8e5;color:#30423e;padding:20px;min-width:0}
+.lab-demo[data-color="rojo"]{--sample-color:#d64443;--sample-edge:#963032}
+.lab-demo[data-color="ambar"]{--sample-color:#f7af41;--sample-edge:#b67523;--sample-logo-filter:brightness(.26)}
+.lab-demo-top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.75rem;font-weight:700}
+.lab-demo-tag{font-size:.62rem;font-weight:500;border:1px solid #9caaa3;border-radius:999px;padding:4px 8px;white-space:nowrap}
+.lab-demo-stage{position:relative;height:310px;perspective:1000px}
+.lab-demo-stage:before{content:"";position:absolute;inset:18px -20px 2px;background-image:radial-gradient(#687a6e40 .8px,transparent .8px);background-size:18px 18px;mask-image:radial-gradient(ellipse at center,#000 15%,transparent 72%)}
+.lab-logo-sheet{position:absolute;left:2%;top:36px;width:100px;aspect-ratio:1/1.12;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#fbf8f1;box-shadow:0 8px 18px #22372b10;transform:rotate(-10deg);z-index:1}
+.lab-logo-sheet img{width:55%;height:auto;filter:brightness(.28)}
+.lab-logo-sheet>span{position:absolute;top:calc(100% + 10px);left:0;right:0;text-align:center;font-size:.72rem;font-weight:500}
+.lab-curve{position:absolute;width:82px;height:50px;left:24%;top:163px;transform:rotate(25deg);color:#597367}
+.lab-piece-position{position:absolute;right:8%;top:87px;width:164px;height:164px;perspective:800px}
+.lab-piece{position:relative;width:100%;height:100%;transform:rotate(-14deg) rotateY(-18deg) rotateX(18deg);transition:transform .5s ease}
+.lab-piece-face{position:absolute;inset:0;border-radius:50%;background:var(--sample-color);border:1px solid #ffffff28;box-shadow:1px 1px 0 var(--sample-edge),2px 2px 0 var(--sample-edge),3px 3px 0 var(--sample-edge),4px 4px 0 var(--sample-edge),5px 5px 0 var(--sample-edge),6px 6px 0 var(--sample-edge),13px 23px 24px #26352e30;display:grid;place-items:center;transition:background .25s,box-shadow .25s}
+.lab-piece-face:after{content:"";position:absolute;inset:5px;border:1px solid #ffffff16;border-radius:inherit;pointer-events:none}
+.lab-piece-face img{width:59%;height:auto;filter:var(--sample-logo-filter);transition:filter .25s}
+.lab-keytab{position:absolute;z-index:-1;top:-21px;left:calc(50% - 17px);width:34px;height:42px;border-radius:16px 16px 6px 6px;background:var(--sample-color);box-shadow:3px 3px 0 var(--sample-edge);transition:opacity .25s,background .25s}
+.lab-keytab:after{content:"";position:absolute;width:11px;height:11px;left:11px;top:8px;background:#e4e8e5;border:1px solid var(--sample-edge);border-radius:50%}
+.lab-keyring{position:absolute;z-index:3;top:-84px;left:calc(50% - 30px);width:63px;height:82px;border:5px solid #bbc0bf;border-left-color:#f8faf8;border-top-color:#fafcf9;border-radius:50%;box-shadow:1px 1px 1px #4f5e58,inset 1px 1px 1px #687770,5px 5px 8px #253d3520;transform:rotate(26deg);transition:opacity .25s,transform .4s}
+.lab-magnet{position:absolute;right:-22px;bottom:8px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#f8faf9,#adb9b3 45%,#dfe6e2 50%,#819389);box-shadow:2px 3px 0 #63746d,5px 9px 10px #26352e26;opacity:0;transform:translateX(-12px);transition:opacity .25s,transform .4s}
+.lab-demo[data-product="pin"] .lab-keyring,.lab-demo[data-product="pin"] .lab-keytab{opacity:0}
+.lab-demo[data-product="pin"] .lab-keyring{transform:translateY(-15px) rotate(36deg)}
+.lab-demo[data-product="pin"] .lab-magnet{opacity:1;transform:translateX(0)}
+.lab-demo[data-product="pin"] .lab-piece{transform:translateY(-12px) rotate(8deg) rotateY(-18deg) rotateX(18deg)}
+.lab-piece-caption{position:absolute;right:0;bottom:9px;font-size:.75rem;font-weight:500;text-align:center;width:66%}
+.lab-demo-controls{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;border-top:1px solid #9caaa370;padding-top:16px;margin-top:4px}
+.lab-demo-controls[hidden]{display:none}
+.lab-product-switch{display:flex;padding:3px;border:1px solid #aebbb4;border-radius:999px;gap:2px}
+.lab-product-switch button{min-height:38px;min-width:70px;border:0;border-radius:999px;padding:7px 14px;cursor:pointer;background:transparent;color:#30423e;font-weight:700;font-size:.76rem}
+.lab-product-switch button[aria-pressed="true"]{background:#fbf8f1;box-shadow:0 2px 5px #2b433518}
+.lab-swatches{display:flex;gap:2px}
+.lab-swatch{position:relative;width:38px;height:38px;padding:0;border:0;background:none;cursor:pointer;border-radius:50%}
+.lab-swatch:before{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--swatch)}
+.lab-swatch[aria-pressed="true"]:after{content:"";position:absolute;inset:3px;border:1px solid #30423e;border-radius:50%}
+.lab-swatch-blue{--swatch:#456d89}.lab-swatch-red{--swatch:#d64443}.lab-swatch-amber{--swatch:#f7af41}
+.lab-demo button:focus-visible{outline:2px solid #30423e;outline-offset:2px}
+.lab-steps{list-style:none;padding:28px 0 0;margin:34px 0 0;display:grid;gap:22px;border-top:1px solid var(--line-strong)}
+.lab-steps>li{display:flex;align-items:flex-start;gap:13px}
+.lab-steps>li>span{font-size:.75rem;color:var(--muted2);padding-top:3px;font-variant-numeric:tabular-nums}
+.lab-steps strong{font-size:.95rem}
+.lab-steps p{font-size:.8rem;color:var(--muted);margin-top:4px}
+.lab-inline{padding:28px 0;background:var(--surface);border-block:1px solid var(--line)}
+.lab-inline-grid{display:flex;align-items:flex-start;flex-direction:column;gap:20px}
+.lab-inline-kicker{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
+.lab-inline h2{font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.025em;line-height:1.15;margin:8px 0}
+.lab-inline p{font-size:.9rem;max-width:60ch;color:var(--muted)}
+.lab-inline .btn{flex-shrink:0;white-space:nowrap}
+@media(min-width:700px){
+ .footer-meta{align-items:flex-end}
+ .lab-feature{padding:76px 0 40px}
+ .lab-feature-grid{grid-template-columns:1fr 1.08fr;gap:36px}
+ .lab-feature h2{font-size:clamp(2.8rem,5.1vw,4.4rem)}
+ .lab-demo{padding:22px}
+ .lab-demo-stage{height:330px}
+ .lab-logo-sheet{left:1%;width:100px;top:44px}
+ .lab-piece-position{right:6%;top:105px;width:175px;height:175px}
+ .lab-curve{left:18%;top:178px}
+ .lab-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:42px;padding-top:26px}
+ .lab-inline-grid{flex-direction:row;align-items:center;justify-content:space-between;gap:30px}
+}
+@media(min-width:960px){
+ .lab-feature-grid{gap:64px}
+ .lab-demo{padding:26px}
+ .lab-demo-stage{height:362px}
+ .lab-logo-sheet{left:3%;width:120px;top:52px}
+ .lab-piece-position{right:9%;top:113px;width:200px;height:200px}
+ .lab-curve{left:25%;top:195px;width:100px}
+}
+@media(max-width:359px){
+ .lab-demo{padding:15px}
+ .lab-piece-position{right:4%;width:148px;height:148px}
+ .lab-logo-sheet{width:82px}
+ .lab-product-switch button{min-width:59px;padding-inline:10px}
+ .lab-swatch{width:34px}
+}
+@media(prefers-color-scheme:dark){.lab-feature h2 em{color:#9abace}}
+@media(prefers-reduced-motion:reduce){.lab-piece,.lab-piece-face,.lab-piece-face img,.lab-keyring,.lab-keytab,.lab-magnet{transition:none}}
+
+/* A visible announcement near the end of the home page. */
+.home-lab-note{display:flex;flex-direction:column;gap:24px;padding:30px;border-radius:var(--r-lg);border:1px solid #54738a;background:#456d89;color:#fff;margin-block:36px}
+.home-lab-note .home-lab-copy{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.home-lab-note .lab-new{font-size:.67rem;padding:6px 10px}
+.home-lab-note h2{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.08;letter-spacing:-.035em;margin:0}
+.home-lab-note p{font-size:.95rem;color:#f5f1e8;line-height:1.5}
+.home-lab-note>a{display:inline-flex;align-items:center;justify-content:center;gap:16px;align-self:flex-start;min-height:48px;padding:12px 20px;border-radius:999px;background:#f7af41;color:#282a27;font-size:.88rem;font-weight:700}
+.home-lab-note>a:hover{background:#ffc064}
+.home-lab-note>a:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media(min-width:700px){.home-lab-note{flex-direction:row;align-items:center;justify-content:space-between;gap:32px;padding:38px 42px}.home-lab-note>a{align-self:center;flex-shrink:0}}
+/* v8: aviso del Lab bajo las tarjetas de portada */
+.home-routes .home-lab-note{margin-block:10px 0}
+@media(min-width:760px){.home-lab-note{flex-direction:row;align-items:center;justify-content:space-between}.home-lab-note>a{align-self:center;flex:none}}
+@media(max-width:699px){.lab-curve{display:none}}

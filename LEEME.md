@@ -20,14 +20,11 @@ Luego visita `http://localhost:8000/`.
 - `assets/`: estilos, scripts, tipografías, fotografías, videos y documentos.
 - `contacto.html`, `404.html`, `sitemap.xml`, `robots.txt` y `CNAME`: archivos de publicación.
 
-## Estado de esta entrega
+## Estado de esta entrega (V8)
 
-- Los archivos del sitio están en la raíz del repositorio.
-- Todos los accesos a Trabajos apuntan explícitamente a `proyectos/index.html`, incluso al abrir el sitio directamente desde el sistema de archivos.
-- La navegación principal incluye acceso directo a Trofeos.
-- Merch ocupa la posición principal de la portada.
-- Trofeos aparece en la vitrina inicial, encabeza el catálogo de Merch y protagoniza la portada de Trabajos.
-- Repuestos conserva alta visibilidad en una franja secundaria y usa una fotografía de piezas técnicas fabricadas en serie.
-- Las rutas, recursos, anclas, navegación móvil y diseño responsive fueron comprobados antes de empaquetar.
+- Base: V7.1 publicada.
+- Un&Co. Lab integrado: aviso en portada bajo las tarjetas de Merch y Trofeos (enlace directo a lab.unyco.pe), sección completa en Merch (#lab) y llamados en Llaveros y Pines.
+- Acceso "Taller" del equipo en el pie de página (lab.unyco.pe/taller, detrás de login).
+- El botón flotante de WhatsApp se oculta al llegar al pie de página.
 
 La publicación en producción requiere subir el contenido de esta raíz al repositorio de GitHub Pages.

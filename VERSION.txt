@@ -1,4 +1,4 @@
-UN&CO. WEB V7.1
+UN&CO. WEB V8
 Fecha: 17 de septiembre de 2026
 
 Cambios respecto a V3:
@@ -24,3 +24,6 @@ V5:
 - V7: galería sin las 3 primeras fotos, ahora 6 piezas en grilla de 3.
 - V7: videos recomprimidos a 1080px (3 MB en total) con poster propio.
 - V7.1: caso en 5 pasos (sin la foto de la serie), en fila de 5 en desktop y tira deslizable en móvil.
+- V8: integración de Un&Co. Lab (portada, Merch #lab, Llaveros, Pines) y acceso Taller en el pie de página.
+- V8: aviso del Lab movido bajo las tarjetas de portada y enlazado directo a lab.unyco.pe.
+- V8: flecha de la demo oculta en celular.

@@ -27,6 +27,7 @@
   const header = document.querySelector('.site-header');
   const fab = document.querySelector('.mobile-wa');
   const opening = document.querySelector('.hero');
+  const footer = document.querySelector('.site-footer');
   let ticking = false;
   const onScroll = () => {
     const y = scrollY;
@@ -34,7 +35,13 @@
       header.classList.toggle('is-scrolled', y > 16);
       header.classList.toggle('over-opening', !!opening && y < Math.max(40, opening.offsetHeight - 90));
     }
-    if (fab) fab.classList.toggle('is-visible', y > 520);
+    if (fab) {
+      // Clear the footer before it reaches the floating button, including Taller.
+      const footerInView = footer && footer.getBoundingClientRect().top <= innerHeight + 24;
+      const visible = y > 520 && !footerInView;
+      fab.classList.toggle('is-visible', visible);
+      fab.inert = !visible;
+    }
     ticking = false;
   };
   const requestScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } };
