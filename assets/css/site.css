@@ -859,3 +859,9 @@ a.mosaic{color:inherit}
 .home-routes .home-lab-note{margin-block:10px 0}
 @media(min-width:760px){.home-lab-note{flex-direction:row;align-items:center;justify-content:space-between}.home-lab-note>a{align-self:center;flex:none}}
 @media(max-width:699px){.lab-curve{display:none}}
+
+/* Cantol: preserve the full portrait framing of prototype and product videos. */
+.cantol-development{grid-template-columns:1fr}
+.cantol-development .tile{aspect-ratio:9/16}
+.cantol-development .tile img,.cantol-development .tile video{object-fit:contain}
+@media(min-width:700px){.cantol-development{grid-template-columns:repeat(3,minmax(0,1fr))}}
