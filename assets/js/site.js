@@ -7,10 +7,16 @@
   const saveData = !!conn.saveData;
   const slowNet = /^(slow-2g|2g)$/.test(conn.effectiveType || '');
 
+  /* iOS Safari only applies :active while a touch listener exists. Without it,
+     the press feedback in the CSS never shows on iPhone. */
+  addEventListener('touchstart', () => {}, { passive: true });
+
   /* ---------- mobile menu ---------- */
   const menuBtn = document.querySelector('.menu-button');
   const menu = document.querySelector('.mobile-menu');
   if (menuBtn && menu) {
+    // Order for the staggered entrance of the links (CSS reads --i).
+    menu.querySelectorAll('.mobile-menu-links a, .mobile-menu-foot > *').forEach((el, i) => el.style.setProperty('--i', i));
     const setMenu = open => {
       body.classList.toggle('menu-open', open);
       menuBtn.setAttribute('aria-expanded', String(open));
@@ -89,7 +95,11 @@
     }
   }
 
-  /* ---------- merch carousel: auto + manual, infinite loop ---------- */
+  /* ---------- merch carousel ----------
+     Native horizontal scroll with snap points. The finger drives it 1:1, and
+     momentum, rubber-banding and mid-flight interruption come from the browser
+     for free. JS only keeps arrows and dots in sync and runs a polite autoplay
+     that yields to any touch, hover, focus, hidden tab or offscreen state. */
   document.querySelectorAll('[data-carousel]').forEach(carousel => {
     const track = carousel.querySelector('.merch-carousel-track');
     const slides = Array.from(carousel.querySelectorAll('.merch-slide'));
@@ -98,62 +108,95 @@
     const next = carousel.querySelector('.merch-carousel-btn.next');
     if (!track || slides.length < 2) return;
 
-    const firstClone = slides[0].cloneNode(true);
-    firstClone.setAttribute('aria-hidden', 'true');
-    track.appendChild(firstClone);
+    carousel.classList.add('is-native');
+    carousel.setAttribute('role', 'region');
+    carousel.setAttribute('aria-roledescription', 'carrusel');
+    track.tabIndex = 0;
+    slides.forEach((s, i) => {
+      s.setAttribute('role', 'group');
+      s.setAttribute('aria-label', `${i + 1} de ${slides.length}`);
+    });
+
+    const canAuto = !reduced && !saveData && !slowNet;
+    const behavior = reduced ? 'auto' : 'smooth';
     let index = 0;
     let timer = null;
-    let locked = false;
+    let resumeTimer = null;
+    let hovered = false;
+    let focused = false;
+    let visible = false;
 
+    // Dots are a pointer aid; keyboard users scroll the focused track or use the arrows.
     const dots = slides.map((_, i) => {
       const b = document.createElement('button');
       b.type = 'button';
+      b.tabIndex = -1;
       b.setAttribute('aria-label', `Mostrar foto ${i + 1}`);
-      b.addEventListener('click', () => go(i));
+      b.addEventListener('click', () => { userActed(); goTo(i); });
       if (dotsWrap) dotsWrap.appendChild(b);
       return b;
     });
 
-    const paint = () => dots.forEach((d, i) => d.classList.toggle('is-active', i === (index % slides.length)));
-    const move = animate => {
-      track.style.transition = animate ? 'transform .65s cubic-bezier(.2,.72,.2,1)' : 'none';
-      track.style.transform = `translate3d(${-index * 100}%,0,0)`;
-      paint();
+    const width = () => track.clientWidth || 1;
+    const paint = () => dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+    const goTo = i => track.scrollTo({ left: i * width(), behavior });
+
+    // Wrapping from the last photo back to the first would sweep through every
+    // slide. Instead the surface fades, repositions while invisible, and returns.
+    const wrapTo = i => {
+      if (reduced || !track.animate) { track.scrollTo({ left: i * width(), behavior: 'auto' }); return; }
+      const out = track.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 140, easing: 'ease-in', fill: 'forwards' });
+      out.onfinish = () => {
+        track.scrollTo({ left: i * width(), behavior: 'auto' });
+        track.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
+        out.cancel();
+      };
     };
-    const restart = () => {
-      if (timer) clearInterval(timer);
-      if (!reduced && !saveData && !slowNet) timer = setInterval(advance, 3600);
-    };
-    const go = i => { if (locked) return; index = i; move(true); restart(); };
-    const advance = () => {
-      if (locked) return;
-      index += 1; locked = true; move(true);
-      setTimeout(() => {
-        if (index === slides.length) {
-          index = 0; move(false);
-          requestAnimationFrame(() => requestAnimationFrame(() => { track.style.transition = 'transform .65s cubic-bezier(.2,.72,.2,1)'; }));
-        }
-        locked = false;
-      }, 680);
-    };
-    const back = () => {
-      if (locked) return;
-      if (index === 0) {
-        index = slides.length; move(false);
-        requestAnimationFrame(() => { index = slides.length - 1; move(true); });
-      } else {
-        index -= 1; move(true);
-      }
-      restart();
+    const step = dir => {
+      const target = index + dir;
+      if (target >= slides.length) wrapTo(0);
+      else if (target < 0) wrapTo(slides.length - 1);
+      else goTo(target);
     };
 
-    if (next) next.addEventListener('click', () => { advance(); restart(); });
-    if (prev) prev.addEventListener('click', back);
-    carousel.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
-    carousel.addEventListener('mouseleave', restart);
-    carousel.addEventListener('focusin', () => { if (timer) clearInterval(timer); });
-    carousel.addEventListener('focusout', restart);
-    move(false);
-    restart();
+    // Index follows the actual scroll position, so a half-finished swipe is never misreported.
+    let ticking = false;
+    track.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const i = Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / width())));
+        if (i !== index) { index = i; paint(); }
+        ticking = false;
+      });
+    }, { passive: true });
+
+    // Autoplay: only while on screen, untouched, unhovered, unfocused.
+    const stop = () => { clearInterval(timer); timer = null; };
+    const start = () => {
+      stop();
+      if (canAuto && visible && !hovered && !focused && !document.hidden) timer = setInterval(() => step(1), 4200);
+    };
+    const userActed = () => {
+      stop();
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(start, 7000);
+    };
+    ['pointerdown', 'wheel', 'touchstart', 'keydown'].forEach(t => track.addEventListener(t, userActed, { passive: true }));
+    carousel.addEventListener('mouseenter', () => { hovered = true; stop(); });
+    carousel.addEventListener('mouseleave', () => { hovered = false; start(); });
+    carousel.addEventListener('focusin', () => { focused = true; stop(); });
+    carousel.addEventListener('focusout', () => { focused = false; start(); });
+    document.addEventListener('visibilitychange', start);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; start(); }, { threshold: 0.5 }).observe(carousel);
+    } else { visible = true; start(); }
+
+    if (next) next.addEventListener('click', () => { userActed(); step(1); });
+    if (prev) prev.addEventListener('click', () => { userActed(); step(-1); });
+
+    // Keep the current photo in place when the viewport width changes.
+    addEventListener('resize', () => track.scrollTo({ left: index * width(), behavior: 'auto' }), { passive: true });
+    paint();
   });
 })();

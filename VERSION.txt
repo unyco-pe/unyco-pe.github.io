@@ -1,5 +1,5 @@
-UN&CO. WEB V8
-Fecha: 17 de septiembre de 2026
+UN&CO. WEB V8.1
+Fecha: 9 de octubre de 2026
 
 Cambios respecto a V3:
 - Portada: nueva frase principal, foto de merch reemplazada, sin etiquetas de prioridad.
@@ -27,3 +27,10 @@ V5:
 - V8: integración de Un&Co. Lab (portada, Merch #lab, Llaveros, Pines) y acceso Taller en el pie de página.
 - V8: aviso del Lab movido bajo las tarjetas de portada y enlazado directo a lab.unyco.pe.
 - V8: flecha de la demo oculta en celular.
+- V8.1: carrusel de merch con deslizamiento nativo (swipe con inercia, se puede interrumpir); flechas ocultas en pantallas táctiles; autoplay que se pausa al tocar, al pasar el mouse o fuera de pantalla; el salto del último al primero se hace con un fundido.
+- V8.1: respuesta inmediata al presionar en botones, tarjetas, filas y CTA flotante (también en iPhone).
+- V8.1: header con fundido real entre oscuro y crema; borde inferior reemplazado por sombra suave; con el menú abierto sobre la portada el header pasa a crema.
+- V8.1: menú móvil que se abre desde el botón y enlaces con entrada escalonada.
+- V8.1: CTA de WhatsApp que aparece desde su esquina.
+- V8.1: FAQ con apertura animada y signo + que pasa a −; titulares con saltos de línea balanceados; señal de "Desliza" se repite 3 veces y se detiene.
+- V8.1: soporte para movimiento reducido, transparencia reducida y alto contraste.

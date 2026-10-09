@@ -865,3 +865,155 @@ a.mosaic{color:inherit}
 .cantol-development .tile{aspect-ratio:9/16}
 .cantol-development .tile img,.cantol-development .tile video{object-fit:contain}
 @media(min-width:700px){.cantol-development{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* ============================================================
+   V8.1: respuesta y continuidad
+   Va al final para ganar la cascada sobre las capas anteriores.
+   Principios: feedback al presionar (no al soltar), movimiento que
+   parte del valor actual y puede interrumpirse, entradas y salidas
+   por el mismo camino, y equivalentes sin movimiento ni transparencia.
+   ============================================================ */
+:root{
+  --settle:cubic-bezier(.22,1,.36,1);   /* amortiguado crítico: llega sin rebote */
+  --press:70ms;                         /* entrada del toque: casi instantánea */
+  --release:.34s;                       /* salida del toque: se asienta */
+  --edge:rgba(32,32,29,.08);
+}
+@media(prefers-color-scheme:dark){:root{--edge:rgba(0,0,0,.38)}}
+html{-webkit-tap-highlight-color:transparent}
+
+/* ---------- 1. Carrusel de merch: desplazamiento nativo ---------- */
+.merch-carousel.is-native .merch-carousel-track{
+  display:flex;overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  transform:none!important;transition:none!important;will-change:auto;
+}
+.merch-carousel.is-native .merch-carousel-track::-webkit-scrollbar{display:none}
+.merch-carousel.is-native .merch-slide{flex:0 0 100%;min-width:100%;scroll-snap-align:center;scroll-snap-stop:always}
+.merch-carousel.is-native .merch-carousel-track:focus-visible{outline:2px solid var(--red);outline-offset:-4px;border-radius:var(--r-media,var(--r-lg))}
+.merch-carousel-dots button{transition:background-color .25s var(--settle),scale .25s var(--settle)}
+.merch-carousel-dots button.is-active{scale:1.25}
+.merch-carousel-btn{transition:transform var(--release) var(--settle),background-color .2s}
+.merch-carousel-btn:active{transition-duration:var(--press),.2s}
+/* En pantallas táctiles el gesto es deslizar: las flechas sobran y tapan la foto. */
+@media(hover:none) and (pointer:coarse){.merch-carousel.is-native .merch-carousel-btn{display:none}}
+
+/* ---------- 2. Respuesta inmediata al presionar ----------
+   Se usa la propiedad individual `scale` para no pisar los `transform`
+   que ya existen (hover, visibilidad del CTA flotante, etc.). */
+.btn{transition:transform .16s ease,background-color .16s,border-color .16s,color .16s,scale var(--release) var(--settle)}
+.btn:active{transform:none;scale:.96;transition-duration:.16s,.16s,.16s,.16s,var(--press)}
+.pill-cta,.menu-button,.lab-product-switch button,.lab-swatch{transition:background-color .3s,color .3s,box-shadow .2s,scale var(--release) var(--settle)}
+.pill-cta:active,.menu-button:active,.lab-product-switch button:active,.lab-swatch:active{scale:.94;transition-duration:.3s,.3s,.2s,var(--press)}
+
+/* Tarjetas: se hunden apenas, como algo físico bajo el dedo. */
+.catalog-card,.product-card,.contact-card,.example-card,.case-row-media,.home-repuestos-band,a.mosaic,.ig-strip{
+  transition:transform .18s var(--ease),box-shadow .18s var(--ease),scale var(--release) var(--settle)}
+a.catalog-card:active,a.product-card:active,a.contact-card:active,a.example-card:active,
+a.case-row-media:active,a.home-repuestos-band:active,a.mosaic:active,a.ig-strip:active{
+  scale:.985;transition-duration:.18s,.18s,var(--press)}
+
+/* Filas de texto: se atenúan al presionar en lugar de encogerse. */
+.route,.nav-item,.header-link,.footer-taller,.footer-links a,.mobile-menu-links a,.mobile-menu-foot a,.faq-item summary,.brand{
+  transition:opacity .28s var(--settle)}
+.inline-link{transition:box-shadow .18s,opacity .28s var(--settle)}
+.route:active,.nav-item:active,.header-link:active,.footer-taller:active,.footer-links a:active,
+.mobile-menu-links a:active,.mobile-menu-foot a:active,.faq-item summary:active,.inline-link:active,.brand:active{
+  opacity:.5;transition-duration:var(--press)}
+
+/* ---------- 3. Header: fundido real entre oscuro y crema ----------
+   Antes el fondo pasaba de degradado a color plano: los degradados no se
+   interpolan, así que el cambio era un salto. Ahora el degradado vive en
+   una capa propia que se desvanece, y el fondo solo cambia de color. */
+.site-header{transition:background-color .35s var(--settle),border-color .35s,backdrop-filter .35s,-webkit-backdrop-filter .35s}
+.site-header::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(20,20,19,.72),rgba(20,20,19,.45) 65%,transparent);
+  opacity:0;transition:opacity .35s var(--settle)}
+.site-header.over-opening{background:transparent}
+.site-header.over-opening::before{opacity:1}
+/* Borde de 1px reemplazado por un desvanecido donde el contenido pasa por debajo. */
+.site-header.is-scrolled{border-color:transparent}
+.site-header::after{content:'';position:absolute;left:0;right:0;top:100%;height:14px;pointer-events:none;
+  background:linear-gradient(to bottom,var(--edge),transparent);opacity:0;transition:opacity .35s var(--settle)}
+.site-header.is-scrolled:not(.over-opening)::after{opacity:1}
+.site-header .brand img{transition:filter .35s var(--settle)}
+.desktop-nav,.header-link{transition:color .35s var(--settle),opacity .28s var(--settle)}
+.menu-button span{transition:transform .32s var(--settle),background-color .35s}
+
+/* ---------- Menú móvil: nace del botón y vuelve a él ---------- */
+.mobile-menu{
+  opacity:1;transform:none;
+  clip-path:circle(0 at calc(100% - var(--gutter) - 22px) calc(var(--header) / -2));
+  visibility:hidden;
+  transition:clip-path .3s cubic-bezier(.4,0,.6,1),visibility 0s .3s;
+}
+.menu-open .mobile-menu{
+  clip-path:circle(150vmax at calc(100% - var(--gutter) - 22px) calc(var(--header) / -2));
+  visibility:visible;
+  transition:clip-path .6s var(--settle),visibility 0s;
+}
+.mobile-menu-links a,.mobile-menu-foot>*{opacity:0;translate:0 10px;
+  transition:opacity .18s ease,translate .18s ease}
+.menu-open .mobile-menu-links a,.menu-open .mobile-menu-foot>*{opacity:1;translate:0 0;
+  transition:opacity .45s var(--settle),translate .55s var(--settle);
+  transition-delay:calc(80ms + var(--i,0) * 35ms)}
+.menu-open .mobile-menu-links a:active{opacity:.5;transition-delay:0s;transition-duration:var(--press)}
+
+/* ---------- CTA flotante: se materializa desde su esquina ---------- */
+.mobile-wa{transform:translateY(14px) scale(.6);transform-origin:100% 100%;opacity:0;
+  transition:transform .5s var(--settle),opacity .22s ease,scale var(--release) var(--settle)}
+.mobile-wa.is-visible{transform:none;opacity:1}
+.mobile-wa:active{scale:.92;transition-duration:.5s,.22s,var(--press)}
+
+/* ---------- 4. Tipografía y detalles ---------- */
+.display,h1,h2,h3{text-wrap:balance}
+p,.lede,li{text-wrap:pretty}
+/* La señal de scroll avisa unas veces y se detiene: un loop infinito y lento cansa. */
+.scroll-cue .line{animation-iteration-count:3}
+/* Tiras deslizables: la tarjeta encaja respetando el margen y el gesto no navega hacia atrás. */
+.swipe-rail,.steps-strip{overscroll-behavior-x:contain}
+.swipe-rail{scroll-padding-inline:var(--gutter)}
+@media(min-width:700px){.swipe-rail{scroll-padding-inline:0}}
+
+/* FAQ: el signo + se convierte en − y la respuesta se despliega. */
+.faq-item summary::after{content:'';flex:none;width:12px;height:12px;
+  background:linear-gradient(currentColor,currentColor) center/12px 1.75px no-repeat,
+             linear-gradient(currentColor,currentColor) center/1.75px 12px no-repeat;
+  transition:background-size .35s var(--settle)}
+.faq-item[open] summary::after{content:'';background-size:12px 1.75px,1.75px 0}
+@supports (interpolate-size:allow-keywords){
+  .faq-item{interpolate-size:allow-keywords}
+  .faq-item::details-content{height:0;overflow:clip;
+    transition:height .4s var(--settle),content-visibility .4s allow-discrete}
+  .faq-item[open]::details-content{height:auto}
+}
+
+/* ---------- Accesibilidad: movimiento, transparencia, contraste ---------- */
+@media(prefers-reduced-motion:reduce){
+  .mobile-menu,.menu-open .mobile-menu{clip-path:none;opacity:0;transition:opacity .2s ease,visibility 0s .2s}
+  .menu-open .mobile-menu{opacity:1;transition:opacity .2s ease,visibility 0s}
+  .mobile-menu-links a,.mobile-menu-foot>*{opacity:1;translate:none;transition:none}
+  .mobile-wa{transform:none;transition:opacity .2s ease}
+  .faq-item::details-content{transition:none}
+  .btn,.pill-cta,.menu-button,.catalog-card,.product-card,.contact-card,.mobile-wa{scale:none!important}
+}
+@media(prefers-reduced-transparency:reduce){
+  .site-header.is-scrolled{background:var(--cream);backdrop-filter:none;-webkit-backdrop-filter:none}
+  .site-header.over-opening{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .site-header.over-opening::before{background:rgba(20,20,19,.92)}
+  .merch-carousel-btn,.merch-carousel-dots{background:#F5F1E8;backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+@media(prefers-contrast:more){
+  .site-header.is-scrolled{border-color:var(--line-strong);background:var(--cream);backdrop-filter:none}
+  .site-header::after{display:none}
+  .merch-carousel-btn{border-color:#22231F;background:#F5F1E8}
+}
+/* Con el menú abierto sobre la portada, el header deja el modo oscuro y se funde con el menú. */
+.menu-open .site-header.over-opening{background:var(--cream)}
+.menu-open .site-header.over-opening::before{opacity:0}
+.menu-open .site-header.over-opening .brand img{filter:none}
+.menu-open .site-header.over-opening .menu-button{background:var(--ink)}
+.menu-open .site-header.over-opening .menu-button span{background:var(--cream)}
+@media(prefers-color-scheme:dark){.menu-open .site-header.over-opening .brand img{filter:brightness(0) invert(1)}}
+.site-header .menu-button{transition:background-color .35s var(--settle),scale var(--release) var(--settle)}
