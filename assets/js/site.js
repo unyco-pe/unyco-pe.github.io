@@ -35,6 +35,17 @@
   const opening = document.querySelector('.hero');
   const footer = document.querySelector('.site-footer');
   let ticking = false;
+  // WhatsApp buttons inside the page content, tracked so the floating one can step aside.
+  const waOnScreen = new Set();
+  const desktopMQ = matchMedia('(min-width: 960px)');
+  if (fab && 'IntersectionObserver' in window) {
+    const inPage = Array.from(document.querySelectorAll('main a[href*="wa.me"]')).filter(a => a !== fab);
+    const waIO = new IntersectionObserver(entries => {
+      entries.forEach(e => (e.isIntersecting ? waOnScreen.add(e.target) : waOnScreen.delete(e.target)));
+      requestScroll();
+    }, { threshold: 0.6 });
+    inPage.forEach(a => waIO.observe(a));
+  }
   const onScroll = () => {
     const y = scrollY;
     if (header) {
@@ -42,9 +53,12 @@
       header.classList.toggle('over-opening', !!opening && y < Math.max(40, opening.offsetHeight - 90));
     }
     if (fab) {
-      // Clear the footer before it reaches the floating button, including Taller.
+      // Visible from the first screen, except while another WhatsApp button is
+      // already on screen (no duplicate CTAs) or the footer is reached.
       const footerInView = footer && footer.getBoundingClientRect().top <= innerHeight + 24;
-      const visible = y > 520 && !footerInView;
+      // Desktop keeps "Cotizar" in the header, so there the floating button waits for some scroll.
+      const ready = desktopMQ.matches ? y > 520 : true;
+      const visible = ready && !footerInView && waOnScreen.size === 0;
       fab.classList.toggle('is-visible', visible);
       fab.inert = !visible;
     }

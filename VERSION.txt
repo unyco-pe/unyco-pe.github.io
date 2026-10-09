@@ -1,4 +1,4 @@
-UN&CO. WEB V8.1
+UN&CO. WEB V8.2
 Fecha: 9 de octubre de 2026
 
 Cambios respecto a V3:
@@ -34,3 +34,8 @@ V5:
 - V8.1: CTA de WhatsApp que aparece desde su esquina.
 - V8.1: FAQ con apertura animada y signo + que pasa a −; titulares con saltos de línea balanceados; señal de "Desliza" se repite 3 veces y se detiene.
 - V8.1: soporte para movimiento reducido, transparencia reducida y alto contraste.
+- V8.2: mensajes de WhatsApp prellenados con campos (cantidad, fecha, qué pieza) en las 49 rutas de cotización, según producto o caso.
+- V8.2: los 30 enlaces de correo llevan asunto y cuerpo según la página, con campo para empresa que emite factura.
+- V8.2: Instagram como canal de contacto: los botones de escribir abren el chat directo (ig.me/m/unyco.pe); el pie sigue enlazando al perfil.
+- V8.2: botón flotante de WhatsApp visible desde la primera pantalla en celular; se oculta mientras hay otro botón de WhatsApp a la vista y al llegar al pie.
+- V8.2: Un&Co. Lab sin protagonismo: fuera de la portada y de Llaveros y Pines; en Merch baja al final (antes de las preguntas) y pierde la etiqueta "Nuevo".
