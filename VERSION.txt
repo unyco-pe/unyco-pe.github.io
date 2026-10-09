@@ -1,4 +1,4 @@
-UN&CO. WEB V8.3
+UN&CO. WEB V8.5
 Fecha: 9 de octubre de 2026
 
 Cambios respecto a V3:
@@ -43,3 +43,11 @@ V5:
 - V8.3: en celular, los casos y "De maqueta a pieza" muestran sus fotos en pares; la portada pasa de unos 13 pantallazos a unos 10.
 - V8.3: el cierre ofrece los tres canales: WhatsApp como botón, correo e Instagram como enlaces.
 - V8.3: el botón flotante se aparta mientras el índice de rutas está en pantalla.
+- V8.4: foto del trofeo de golf de 3024 a 2000 px (1.4 MB a 600 KB, sin pérdida visible). Videos sin recomprimir: el ahorro era pequeño frente al riesgo de calidad.
+- V8.4: todos los videos en reproducción automática, sin audio y en bucle (los dos de Cantol tenían controles). Con "reducir movimiento" o ahorro de datos siguen mostrando controles.
+- V8.4: portada: los tres casos pasan a una tira "Trabajos recientes"; "De maqueta a pieza" se integra en "No necesitas tener todo resuelto". 12 a 9 secciones; en celular, de unos 13 a 8 pantallazos.
+- V8.4: Merch: los casos Cantol y Coolbox en una tira; en celular el Lab muestra solo texto y botón.
+- V8.4: Repuestos: en celular los materiales se deslizan en horizontal (de 3.5 pantallazos a menos de 1).
+- V8.5: portada: nueva sección "Antes de fabricar el lote, lo apruebas." con el caso Cantol en secuencia (render, prueba en blanco, lote de 500). Los clientes y las garantías quedan como una línea al pie de esa sección.
+- V8.5: promesa "Respondemos el mismo día, de lunes a viernes" junto a cada botón principal de WhatsApp y en Contacto.
+- V8.5: el cierre de la portada invita a coordinar una visita al taller.

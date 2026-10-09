@@ -1064,3 +1064,68 @@ p,.lede,li{text-wrap:pretty}
   .example-grid{grid-template-columns:1fr 1fr}
   .example-card img{aspect-ratio:4/5;object-fit:cover;height:auto}
 }
+
+/* V8.3b: trabajos en una tira y el ejemplo de maqueta dentro de "No necesitas…" */
+.work-rail{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+  overscroll-behavior-x:contain;scrollbar-width:none;padding:0 var(--gutter) 6px;margin-inline:calc(var(--gutter)*-1);scroll-padding-inline:var(--gutter)}
+.work-rail::-webkit-scrollbar{display:none}
+.work-tile{scroll-snap-align:start;display:flex;flex-direction:column;gap:6px;color:var(--ink);
+  transition:scale var(--release) var(--settle)}
+.work-tile:active{scale:.985;transition-duration:var(--press)}
+.work-tile-media{aspect-ratio:4/5;border-radius:var(--r-media,var(--r-lg));overflow:hidden;background:var(--surface);margin-bottom:8px}
+.work-tile-media img{width:100%;height:100%;object-fit:cover;transition:scale .5s var(--settle)}
+.work-tile-kicker{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted2)}
+.work-tile strong{font-family:var(--font-display);font-size:1.28rem;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+.work-tile-meta{font-size:.86rem;color:var(--muted)}
+.work-tile-link{margin-top:4px;font-size:.86rem;font-weight:700}
+@media(min-width:700px){
+  .work-rail{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;padding:0;margin:0;gap:22px}
+}
+@media(hover:hover) and (pointer:fine){
+  .work-tile:hover .work-tile-media img{scale:1.03}
+  .work-tile:hover .work-tile-link{text-decoration:underline;text-underline-offset:4px}
+}
+.story-example{margin:26px 0 0;max-width:460px}
+.story-example-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.story-example .example-card img{aspect-ratio:4/5;object-fit:cover;width:100%;height:auto}
+.story-example figcaption{margin-top:10px;font-size:.88rem;color:rgba(255,255,255,.86);max-width:42ch}
+.story-example figcaption a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(min-width:700px){.work-rail--2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Categorías en celular: la información técnica se desliza en vez de apilarse. */
+@media(max-width:699px){
+  .material-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:84%;overflow-x:auto;
+    scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;
+    padding:0 var(--gutter) 6px;margin-inline:calc(var(--gutter)*-1);scroll-padding-inline:var(--gutter)}
+  .material-grid::-webkit-scrollbar{display:none}
+  .material{scroll-snap-align:start}
+  /* Lab sin protagonismo: en celular queda solo el texto y su botón. */
+  #lab .lab-demo,#lab .lab-steps{display:none}
+}
+@media(min-width:700px){.work-rail--2 .work-tile-media{aspect-ratio:4/3}}
+
+/* V8.5: confianza cerca de la decisión */
+.wa-promise{margin-top:9px;font-size:.84rem;color:var(--muted)}
+.theme-dark .wa-promise,.closing.theme-dark .wa-promise{color:rgba(245,241,232,.72)}
+.home-proof{padding:64px 0 60px;background:var(--cream);color:var(--ink)}
+.home-proof-head{display:grid;gap:12px;margin-bottom:26px}
+.home-proof-head h2{font-size:clamp(2.1rem,8.6vw,3.9rem);line-height:.98;max-width:13ch;margin:0}
+.home-proof-head p{max-width:44ch;color:var(--muted)}
+.home-proof-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;counter-reset:none}
+.home-proof-steps li{display:flex;flex-direction:column;gap:4px;min-width:0}
+.home-proof-steps figure{margin:0 0 8px;aspect-ratio:3/4;border-radius:var(--r-media,var(--r-lg));overflow:hidden;background:var(--surface)}
+.home-proof-steps img{width:100%;height:100%;object-fit:cover}
+.home-proof-step{font-family:var(--font-display);font-weight:700;font-size:clamp(.95rem,3.8vw,1.35rem);letter-spacing:-.02em}
+.home-proof-ref{font-size:.76rem;color:var(--muted2);line-height:1.3}
+.home-proof-foot{margin-top:28px;padding-top:18px;border-top:1px solid var(--line-strong);max-width:70ch;font-size:.88rem;color:var(--muted)}
+@media(min-width:760px){
+  .home-proof{padding:96px 0 84px}
+  .home-proof-head{grid-template-columns:1.2fr .8fr;align-items:end;gap:40px;margin-bottom:40px}
+  .home-proof-head p{justify-self:end}
+  .home-proof-steps{gap:22px}
+  .home-proof-steps li{position:relative}
+  .home-proof-steps li+li::before{content:'';position:absolute;top:calc(50% - 30px);left:-17px;width:12px;height:1px;background:var(--line-strong)}
+  .home-proof-ref{font-size:.86rem}
+}
+.home-proof-case{margin:0 0 14px;font-size:.88rem;color:var(--muted)}
+@media(min-width:760px){.home-proof-case{margin-bottom:18px}}
