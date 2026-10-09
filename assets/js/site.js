@@ -39,7 +39,8 @@
   const waOnScreen = new Set();
   const desktopMQ = matchMedia('(min-width: 960px)');
   if (fab && 'IntersectionObserver' in window) {
-    const inPage = Array.from(document.querySelectorAll('main a[href*="wa.me"]')).filter(a => a !== fab);
+    // The hero route index counts too: it is the first screen's action and the button would cover it.
+    const inPage = Array.from(document.querySelectorAll('main a[href*="wa.me"], .hero-routes')).filter(a => a !== fab);
     const waIO = new IntersectionObserver(entries => {
       entries.forEach(e => (e.isIntersecting ? waOnScreen.add(e.target) : waOnScreen.delete(e.target)));
       requestScroll();

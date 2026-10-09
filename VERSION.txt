@@ -1,4 +1,4 @@
-UN&CO. WEB V8.2
+UN&CO. WEB V8.3
 Fecha: 9 de octubre de 2026
 
 Cambios respecto a V3:
@@ -39,3 +39,7 @@ V5:
 - V8.2: Instagram como canal de contacto: los botones de escribir abren el chat directo (ig.me/m/unyco.pe); el pie sigue enlazando al perfil.
 - V8.2: botón flotante de WhatsApp visible desde la primera pantalla en celular; se oculta mientras hay otro botón de WhatsApp a la vista y al llegar al pie.
 - V8.2: Un&Co. Lab sin protagonismo: fuera de la portada y de Llaveros y Pines; en Merch baja al final (antes de las preguntas) y pierde la etiqueta "Nuevo".
+- V8.3: portada: el primer pantallazo muestra los tres caminos (Merch desde S/. 2, Trofeos desde S/. 60, Repuestos a medida) en lugar de "Desliza". Motivo: la portada recibe unas 20 veces más visitas que cualquier categoría.
+- V8.3: en celular, los casos y "De maqueta a pieza" muestran sus fotos en pares; la portada pasa de unos 13 pantallazos a unos 10.
+- V8.3: el cierre ofrece los tres canales: WhatsApp como botón, correo e Instagram como enlaces.
+- V8.3: el botón flotante se aparta mientras el índice de rutas está en pantalla.

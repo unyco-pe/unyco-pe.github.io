@@ -1017,3 +1017,50 @@ p,.lede,li{text-wrap:pretty}
 .menu-open .site-header.over-opening .menu-button span{background:var(--cream)}
 @media(prefers-color-scheme:dark){.menu-open .site-header.over-opening .brand img{filter:brightness(0) invert(1)}}
 .site-header .menu-button{transition:background-color .35s var(--settle),scale var(--release) var(--settle)}
+
+/* ============================================================
+   V8.3: la portada reparte el tráfico
+   Medido: la portada recibe ~20 veces más visitas que cualquier
+   categoría. El primer pantallazo ahora muestra los tres caminos,
+   y en celular las pruebas (casos, maqueta) ocupan la mitad de alto.
+   ============================================================ */
+
+/* Índice de rutas dentro del hero: reemplaza la señal "Desliza". */
+.hero{padding-bottom:calc(var(--hero-routes-h,76px) + 40px)}
+.hero-routes{
+  --hero-routes-h:76px;
+  position:absolute;z-index:3;left:50%;bottom:max(18px,env(safe-area-inset-bottom));
+  translate:-50% 0;width:min(calc(100% - var(--gutter)*2),560px);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  border-top:1px solid rgba(245,241,232,.22);
+}
+.js-anim .hero-routes{opacity:0}
+.hero-routes a{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  min-height:var(--hero-routes-h);padding:12px 6px 10px;color:#F5F1E8;position:relative;
+  transition:opacity .28s var(--settle),background-color .3s var(--settle);
+}
+.hero-routes a+a::before{content:'';position:absolute;left:0;top:16px;bottom:16px;width:1px;background:rgba(245,241,232,.18)}
+.hero-route-name{font-family:var(--font-display);font-weight:700;font-size:clamp(1.08rem,4.6vw,1.3rem);letter-spacing:-.025em;line-height:1.1}
+.hero-route-meta{font-size:.74rem;color:rgba(245,241,232,.7);font-variant-numeric:tabular-nums}
+.hero-routes a:active{opacity:.55;transition-duration:var(--press)}
+.hero-routes a:focus-visible{outline:2px solid #F5F1E8;outline-offset:-4px;border-radius:6px}
+@media(hover:hover) and (pointer:fine){
+  .hero-routes a:hover{background:rgba(245,241,232,.06)}
+  .hero-routes a:hover .hero-route-name{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+}
+/* Pantallas bajas (iPhone SE, laptops con barra): el ampersand cede espacio. */
+@media(max-height:700px){.hero-amp svg{width:min(52vw,34vh,320px)}}
+
+/* Cierre: tres canales, WhatsApp primero. */
+.home-closing-alt{margin-top:14px;font-size:.92rem;color:var(--muted)}
+
+/* Celular: las pruebas se leen de un vistazo, en pares. */
+@media(max-width:699px){
+  .home-priority-card--trofeos .page-visual{aspect-ratio:4/3}
+  .home-priority-card--trofeos .page-visual img{object-position:center 38%}
+  .case-media-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .case-media-grid .case-media--tall{aspect-ratio:4/5}
+  .example-grid{grid-template-columns:1fr 1fr}
+  .example-card img{aspect-ratio:4/5;object-fit:cover;height:auto}
+}
