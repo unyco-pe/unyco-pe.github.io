@@ -1,4 +1,4 @@
-UN&CO. WEB V8.5
+UN&CO. WEB V8.8
 Fecha: 9 de octubre de 2026
 
 Cambios respecto a V3:
@@ -51,3 +51,13 @@ V5:
 - V8.5: portada: nueva sección "Antes de fabricar el lote, lo apruebas." con el caso Cantol en secuencia (render, prueba en blanco, lote de 500). Los clientes y las garantías quedan como una línea al pie de esa sección.
 - V8.5: promesa "Respondemos el mismo día, de lunes a viernes" junto a cada botón principal de WhatsApp y en Contacto.
 - V8.5: el cierre de la portada invita a coordinar una visita al taller.
+- V8.5b: CSS y JS con marca de versión (?v=) para que Safari, Instagram y Cloudflare no sirvan archivos viejos. Cambiar la marca cada vez que se edite site.css o site.js.
+- V8.6: portada de 9 a 6 secciones, cada una con composición propia: catálogo en mosaico con precios (reemplaza las tarjetas de categoría y la franja "Merch que nadie bote"), franja de marcas en movimiento ("Entre otras marcas"), aprobación antes del lote, taller con 3 casos y un video en columnas desfasadas, preguntas frecuentes dentro del bloque azul, y cierre con miniaturas de Instagram.
+- V8.7: portada rehecha y revisada pantalla por pantalla en celular y laptop: hero, estante de 6 productos con precio, "Antes de fabricar el lote, lo apruebas" en azul (se desliza en celular), franja de marcas, índice de trabajos en filas, preguntas en desplegables y cierre amarillo. En celular, de 8 a 5 pantallas.
+- V8.7: en celular, todas las galerías de Merch, Trofeos y Repuestos se deslizan en una fila en vez de apilarse. Merch: casos en filas compactas y catálogo con fotos cuadradas. Merch de 9 a 7 pantallas, Trofeos de 7 a 5, Repuestos de 7 a 6.
+- V8.8: síntesis basada en evidencia (NN/g, Baymard). Portada y categorías en unas 4 pantallas de celular; contenido esencial nunca en scroll horizontal; sin carrusel automático en celular.
+- V8.8: Portada: "Qué fabricamos" (4 tarjetas con precio desde), bloque "Antes de fabricar el lote, lo apruebas" (render, prueba, lote; caso Cantol), marcas como "Entre otras marcas", cierre "¿Tienes una idea? Hagámosla."
+- V8.8: Merch: foto fija en el encabezado, Catálogo en 3 columnas en celular, enlace discreto al generador del Lab, Encargos especiales en 6 fotos, 5 preguntas.
+- V8.8: Repuestos: una sola foto arriba, escaneo y pasos unidos en "De la pieza rota a la pieza final" (3 videos), materiales como lista desplegable, 3 preguntas.
+- V8.8: Trofeos: galería de 6, Golf y Coolbox juntos en "Encargos recientes", 3 preguntas.
+- V8.8: URLs, títulos y H1 sin cambios. Estilos y scripts con ?v=20261009j.
