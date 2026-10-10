@@ -1,4 +1,4 @@
-UN&CO. WEB V8.8
+UN&CO. WEB V8.9
 Fecha: 9 de octubre de 2026
 
 Cambios respecto a V3:
@@ -61,3 +61,5 @@ V5:
 - V8.8: Repuestos: una sola foto arriba, escaneo y pasos unidos en "De la pieza rota a la pieza final" (3 videos), materiales como lista desplegable, 3 preguntas.
 - V8.8: Trofeos: galería de 6, Golf y Coolbox juntos en "Encargos recientes", 3 preguntas.
 - V8.8: URLs, títulos y H1 sin cambios. Estilos y scripts con ?v=20261009j.
+- V8.9: imagen para compartir (og:image) en JPG 1200x630 por página, en assets/media/og/. Contacto y 404 usan la de la portada.
+- V8.9: primera línea de WhatsApp distinta por página para saber de dónde viene cada cotización. Tabla en LEEME.md.
