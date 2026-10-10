@@ -1,4 +1,4 @@
-UN&CO. WEB V9.2
+UN&CO. WEB V9.3
 Fecha: 9 de octubre de 2026
 
 Cambios respecto a V3:
@@ -78,3 +78,8 @@ V5:
 - V9.1: contraste revisado en modo claro y oscuro (cierre amarillo, precios, textos sobre azul). Estilos ?v=20261010b.
 - V9.2: portada: "Qué fabricamos" con fotos de Coolbox, Cantol, pines en polo y mecanismo; sale "Antes de fabricar el lote" (vive en Merch); UV DTF bajo Trabajos como antes y después ("El detalle que faltaba."); Regalos en la barra de accesos.
 - V9.2: Merch: sale la tarjeta de Merch & Gifts; Encargos especiales con diorama y piezas óseas (enlace al caso), tomate reencuadrado. Estilos ?v=20261010c.
+- V9.3: imagen al compartir la portada: llaveros Un&Co. (og/og-home.jpg).
+- V9.3: portada: Qué fabricamos con 6 fichas (suma Regalos en teca y Encargos especiales; Llaveros con Cantol empacado) y "Ver catálogos" con selector.
+- V9.3: Merch: encabezado recortado a los llaveros; fichas del catálogo con la foto a todo el marco. Cantol: galería sin bandas grises.
+- V9.3: Pines sin la narrativa de los 16 pines. Llaveros: encabezado doble y galería de 8 (Cantol, UV DTF, clicker, QR, MillionHair, Pekemanía).
+- V9.3: videos: autoplay sin audio también con ahorro de datos; si el iPhone bloquea el autoplay, arrancan al primer toque. Estilos y scripts ?v=20261010d.

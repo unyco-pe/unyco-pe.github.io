@@ -87,26 +87,36 @@
     setTimeout(showAll, 2500);
   }
 
-  /* ---------- video: play in view, pause out of view (all viewports) ---------- */
+  /* ---------- video: play in view, pause out of view (all viewports) ----------
+     Every video autoplays muted. Only people who asked their system for
+     reduced motion get a tap-to-play video. If the browser blocks autoplay
+     (iPhone Low Power Mode), the videos on screen start on the first tap. */
   const vids = Array.from(document.querySelectorAll('video[data-inview]'));
   if (vids.length) {
-    if (reduced || saveData || slowNet) {
+    if (reduced) {
       vids.forEach(v => { v.setAttribute('controls', ''); v.removeAttribute('loop'); });
     } else {
-      vids.forEach(v => { v.muted = true; v.playsInline = true; });
+      const blocked = new Set();
+      const tryPlay = v => {
+        const p = v.play();
+        if (p && p.catch) p.catch(() => blocked.add(v));
+      };
+      vids.forEach(v => { v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute('muted', ''); });
       const vio = new IntersectionObserver(entries => {
         entries.forEach(e => {
           const v = e.target;
           if (e.isIntersecting) {
             if (v.preload !== 'auto') v.preload = 'auto';
-            const p = v.play();
-            if (p && p.catch) p.catch(() => { v.setAttribute('controls', ''); });
-          } else if (!v.paused) {
-            v.pause();
+            tryPlay(v);
+          } else {
+            blocked.delete(v);
+            if (!v.paused) v.pause();
           }
         });
       }, { threshold: 0.25, rootMargin: '200px 0px' });
       vids.forEach(v => vio.observe(v));
+      const unblock = () => { blocked.forEach(v => { blocked.delete(v); tryPlay(v); }); };
+      ['touchstart', 'pointerdown', 'keydown', 'scroll'].forEach(t => addEventListener(t, unblock, { passive: true }));
     }
   }
 
@@ -213,5 +223,11 @@
     // Keep the current photo in place when the viewport width changes.
     addEventListener('resize', () => track.scrollTo({ left: index * width(), behavior: 'auto' }), { passive: true });
     paint();
+  });
+
+  /* ---------- selector de catálogo: se cierra al tocar fuera o con Escape ---------- */
+  document.querySelectorAll('details.cat-pick').forEach(d => {
+    document.addEventListener('click', e => { if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
   });
 })();

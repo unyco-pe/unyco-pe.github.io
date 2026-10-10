@@ -1593,3 +1593,22 @@ p,.lede,li{text-wrap:pretty}
 .tile-case-label{position:absolute;left:8px;bottom:8px;z-index:1;padding:5px 9px;border-radius:999px;background:rgba(27,28,25,.78);font-size:.74rem;font-weight:700}
 @media(hover:hover) and (pointer:fine){.tile--case:hover img{scale:1.04}.tile--case img{transition:scale .6s var(--settle)}}
 .make-card img[src*="coolbox-trofeo"]{object-position:center 12%}.uvdtf-copy .eyebrow{display:block;margin-bottom:8px}
+
+/* V9.3: fotos que llenan su marco (se acepta recorte) */
+.cantol-development .tile img,.cantol-development .tile video{object-fit:cover}
+@media(min-width:700px){.cantol-development .tile{aspect-ratio:3/4}}
+.catalog-card-photo{padding:0!important;overflow:hidden}
+.catalog-card-photo img{object-fit:cover!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;border-radius:0!important}
+.merch-hero .merch-still img{object-position:center center}
+@media(min-width:960px){.merch-hero .merch-still{aspect-ratio:3/2;max-width:560px}}
+/* Qué fabricamos: 6 fichas y selector de catálogo */
+@media(min-width:760px){.make-grid--6{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}.make-grid--6 .make-photo{aspect-ratio:4/3}}
+@media(min-width:1100px){.make-grid--6{grid-template-columns:repeat(6,minmax(0,1fr));gap:20px 14px}.make-grid--6 .make-photo{aspect-ratio:4/5}}
+.cat-pick{position:relative}
+.cat-pick summary{list-style:none;cursor:pointer;white-space:nowrap;font-size:.9rem}
+.cat-pick summary::-webkit-details-marker{display:none}
+.cat-pick-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:20;min-width:200px;display:grid;padding:6px;border-radius:14px;
+  background:var(--cream);border:1px solid var(--line-strong);box-shadow:0 12px 32px rgba(0,0,0,.14)}
+.cat-pick-menu a{padding:11px 12px;border-radius:9px;color:var(--ink);font-weight:600;font-size:.95rem}
+.cat-pick-menu a:hover,.cat-pick-menu a:focus-visible{background:var(--surface)}
+.cat-pick[open] summary{text-decoration-thickness:2px}
