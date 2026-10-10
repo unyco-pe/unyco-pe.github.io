@@ -1,4 +1,4 @@
-UN&CO. WEB V8.9
+UN&CO. WEB V9.2
 Fecha: 9 de octubre de 2026
 
 Cambios respecto a V3:
@@ -63,3 +63,18 @@ V5:
 - V8.8: URLs, títulos y H1 sin cambios. Estilos y scripts con ?v=20261009j.
 - V8.9: imagen para compartir (og:image) en JPG 1200x630 por página, en assets/media/og/. Contacto y 404 usan la de la portada.
 - V8.9: primera línea de WhatsApp distinta por página para saber de dónde viene cada cotización. Tabla en LEEME.md.
+- V9: nueva página Merch & Gifts (areas/merch-gifts.html): 7 productos en teca con precio por 1, 50 y 100 piezas, teca de reforestación y catálogo PDF liviano (18 MB a 7 MB sin cambio visible).
+- V9: nuevo caso Diorama de estación de servicio (proyectos/diorama.html), sin nombrar al cliente. Agregado al índice de Trabajos y al sitemap.
+- V9: Merch: foto nueva del pegboard (encabezado y al compartir), bloque Acabado UV DTF, acceso a Merch & Gifts; en Encargos entran tomate y clicker, salen cafetería (2a foto) y MillionHair.
+- V9: Pines: caso de 16 pines a partir de fotos (render, mesa, polo). Repuestos: proceso en 4 pasos con escaneo 3D; galería con mecanismo y CAD (salen las dos piezas de airsoft).
+- V9: Cantol: timelapse del armado en lugar de la foto de armado. Videos H.264 sin audio, calidad verificada contra el original.
+- V9: estilos y scripts con ?v=20261010a.
+- V9.1: "Regalos" en el menú superior y en el menú del celular de todas las páginas (lleva a Merch & Gifts).
+- V9.1: portada: bloque Acabado UV DTF con la foto del diorama, pines de colores en "Qué fabricamos" y vuelve "Cómo empezamos" (ampersand, dos caminos y preguntas).
+- V9.1: el diorama deja de ser caso (página eliminada); sus fotos se usan para mostrar UV DTF en portada y Merch.
+- V9.1: Pines rehecha: encabezado con dos fotos, caso de 16 pines destacado en oscuro, galería y preguntas con plazos.
+- V9.1: Repuestos vuelve a 3 pasos de la misma pieza; el video de escaneo pasa a la galería.
+- V9.1: Trabajos usa la misma franja de marcas que la portada.
+- V9.1: contraste revisado en modo claro y oscuro (cierre amarillo, precios, textos sobre azul). Estilos ?v=20261010b.
+- V9.2: portada: "Qué fabricamos" con fotos de Coolbox, Cantol, pines en polo y mecanismo; sale "Antes de fabricar el lote" (vive en Merch); UV DTF bajo Trabajos como antes y después ("El detalle que faltaba."); Regalos en la barra de accesos.
+- V9.2: Merch: sale la tarjeta de Merch & Gifts; Encargos especiales con diorama y piezas óseas (enlace al caso), tomate reencuadrado. Estilos ?v=20261010c.

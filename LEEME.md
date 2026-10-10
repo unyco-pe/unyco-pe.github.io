@@ -49,6 +49,7 @@ Cada página abre WhatsApp con una primera línea distinta. Para saber qué pág
 | Hola, vi sus trabajos y tengo una idea para Un&Co. | Trabajos (cierre) |
 | Hola, vi los llaveros de Cantol... | Caso Cantol |
 | Hola, quiero cotizar merch para un evento con Un&Co. | Caso Coolbox |
+| Hola, quiero cotizar regalos en teca de Merch & Gifts con Un&Co. | Merch & Gifts |
 | Hola, necesito una pieza grande para una exhibición o stand... | Caso piezas óseas |
 | Hola, vi el caso de desarrollo de producto... / tengo una muestra... | Caso desarrollo de producto |
 | Hola, vi su web y quiero cotizar con Un&Co. | Contacto |
