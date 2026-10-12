@@ -101,7 +101,7 @@
         const p = v.play();
         if (p && p.catch) p.catch(() => blocked.add(v));
       };
-      vids.forEach(v => { v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute('muted', ''); });
+      vids.forEach(v => { if (v.parentElement) v.parentElement.classList.add("has-video"); v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute('muted', ''); });
       const vio = new IntersectionObserver(entries => {
         entries.forEach(e => {
           const v = e.target;

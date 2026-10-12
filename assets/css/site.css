@@ -1620,3 +1620,5 @@ p,.lede,li{text-wrap:pretty}
 video[data-inview]{width:calc(100% + 2px)!important;height:calc(100% + 2px)!important;max-width:none!important;margin:-1px!important}
 /* Trofeo Coolbox en Qué fabricamos: que no se corte la parte superior del escudo. */
 .make-photo img[src*="coolbox-trofeo"]{object-position:center 5%}
+/* V9.4.1: el marco de un video no tiene color propio. Safari deja ver 1px del fondo del marco al costado del video; sin color, ese borde es el mismo fondo de la sección y no se nota. */
+.has-video,.tile:has(>video),.case-media:has(>video),.case-media-solo:has(>video),.workshop-video{background:transparent!important}
