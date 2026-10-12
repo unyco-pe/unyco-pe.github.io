@@ -1,5 +1,5 @@
-UN&CO. WEB V9.3
-Fecha: 9 de octubre de 2026
+UN&CO. WEB V9.4
+Fecha: 12 de octubre de 2026
 
 Cambios respecto a V3:
 - Portada: nueva frase principal, foto de merch reemplazada, sin etiquetas de prioridad.
@@ -82,4 +82,6 @@ V5:
 - V9.3: portada: Qué fabricamos con 6 fichas (suma Regalos en teca y Encargos especiales; Llaveros con Cantol empacado) y "Ver catálogos" con selector.
 - V9.3: Merch: encabezado recortado a los llaveros; fichas del catálogo con la foto a todo el marco. Cantol: galería sin bandas grises.
 - V9.3: Pines sin la narrativa de los 16 pines. Llaveros: encabezado doble y galería de 8 (Cantol, UV DTF, clicker, QR, MillionHair, Pekemanía).
+- V9.3.1: Regalos sin pines tallados (web y PDF). Grilla de Regalos y listas de servicios de Trofeos y Repuestos en 3 columnas.
+- V9.4: videos sin la línea de 1px que Safari dejaba al costado. Desarrollo de producto: fotos a todo el ancho en celular. Repuestos: portada del video "La pieza rota" muestra la grieta. Trofeo Coolbox de la portada sin cortar el escudo.
 - V9.3: videos: autoplay sin audio también con ahorro de datos; si el iPhone bloquea el autoplay, arrancan al primer toque. Estilos y scripts ?v=20261010d.

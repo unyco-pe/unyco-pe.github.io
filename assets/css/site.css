@@ -1612,3 +1612,11 @@ p,.lede,li{text-wrap:pretty}
 .cat-pick-menu a{padding:11px 12px;border-radius:9px;color:var(--ink);font-weight:600;font-size:.95rem}
 .cat-pick-menu a:hover,.cat-pick-menu a:focus-visible{background:var(--surface)}
 .cat-pick[open] summary{text-decoration-thickness:2px}
+
+/* V9.4 encuadres */
+/* Figuras sin el margen por defecto del navegador. */
+.case-media{margin:0}
+/* Safari deja una línea de 1px junto a videos con ancho fraccional: el video sobresale 1px por lado y el marco lo recorta. */
+video[data-inview]{width:calc(100% + 2px)!important;height:calc(100% + 2px)!important;max-width:none!important;margin:-1px!important}
+/* Trofeo Coolbox en Qué fabricamos: que no se corte la parte superior del escudo. */
+.make-photo img[src*="coolbox-trofeo"]{object-position:center 5%}
