@@ -1,5 +1,5 @@
-UN&CO. WEB V9.4
-Fecha: 12 de octubre de 2026
+UN&CO. WEB V9.5
+Fecha: 16 de octubre de 2026
 
 Cambios respecto a V3:
 - Portada: nueva frase principal, foto de merch reemplazada, sin etiquetas de prioridad.
@@ -85,3 +85,10 @@ V5:
 - V9.3.1: Regalos sin pines tallados (web y PDF). Grilla de Regalos y listas de servicios de Trofeos y Repuestos en 3 columnas.
 - V9.4: videos sin la línea de 1px que Safari dejaba al costado. Desarrollo de producto: fotos a todo el ancho en celular. Repuestos: portada del video "La pieza rota" muestra la grieta. Trofeo Coolbox de la portada sin cortar el escudo.
 - V9.3: videos: autoplay sin audio también con ahorro de datos; si el iPhone bloquea el autoplay, arrancan al primer toque. Estilos y scripts ?v=20261010d.
+- V9.5: portada: bloque final con Instagram (@unyco.pe, 4 miniaturas) y reseñas de Google (botón y QR; el QR solo se muestra en pantallas de 700 px o más).
+- V9.5: QR de reseñas en assets/brand/qr-resenas-google.svg, con la URL de seguimiento de Google (utm_source=gbp). El botón usa https://g.page/r/Ceb7sCxL1USJEAE/review.
+- V9.5: Trofeos: la foto de la serie Innova (photos/madrededios.webp) se reemplaza por el reconocimiento EEMRI 2026 (photos/trofeo-eemri.webp, recortada a 3:4). madrededios.webp queda sin uso.
+- V9.5: Repuestos: 3 piezas nuevas en la galería de "Más repuestos" (escaneo de una montura, modelo 3D y estribos en PETG con fibra de carbono), sin caso ni título aparte. Galería de 6 a 9 fotos (3x3). Video sin audio, sin recodificar.
+- V9.5: título de la portada "Un&Co: Merch personalizado y repuestos a medida en Lima" (antes Google lo mostraba como "Un&Co.: ..."). Descripción de Trabajos con "Un&Co:".
+- V9.5: Contacto: tarjeta de reseñas de Google (botón y QR) después de "Ven al taller".
+- V9.5: estilos y scripts ?v=20261016a.

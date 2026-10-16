@@ -1622,3 +1622,34 @@ video[data-inview]{width:calc(100% + 2px)!important;height:calc(100% + 2px)!impo
 .make-photo img[src*="coolbox-trofeo"]{object-position:center 5%}
 /* V9.4.1: el marco de un video no tiene color propio. Safari deja ver 1px del fondo del marco al costado del video; sin color, ese borde es el mismo fondo de la sección y no se nota. */
 .has-video,.tile:has(>video),.case-media:has(>video),.case-media-solo:has(>video),.workshop-video{background:transparent!important}
+
+/* V9.5: bloque final de la portada: Instagram + reseñas de Google */
+.social-band{padding:44px 0 52px}
+.social-grid{display:grid;gap:12px}
+.ig-card{display:grid;gap:18px;padding:22px;border-radius:var(--r-lg);background:var(--blue);color:#fff;transition:transform .16s ease}
+.ig-card:active{transform:scale(.99)}
+.ig-card .eyebrow{color:rgba(255,255,255,.88)}
+.ig-card h2{font-size:clamp(1.9rem,8vw,3rem);color:#fff;margin-top:6px;max-width:12ch}
+.ig-card p{color:rgba(255,255,255,.94);margin-top:10px;max-width:34ch}
+.ig-card .btn{margin-top:16px}
+.ig-card-thumbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;align-self:end}
+.ig-card-thumbs img{aspect-ratio:1/1;object-fit:cover;border-radius:8px;width:100%;height:auto;background:rgba(255,255,255,.12)}
+.review-card{display:grid;gap:16px;padding:22px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.review-card h3{font-family:var(--font-display);font-size:clamp(1.45rem,6vw,1.9rem);line-height:1.02;letter-spacing:-.035em;margin:6px 0 0}
+.review-card p{color:var(--muted);margin-top:10px;max-width:32ch;font-size:.94rem}
+.review-card .btn{margin-top:16px}
+.review-qr{display:none;margin:0}
+.review-qr img{width:148px;height:148px;border-radius:10px;border:1px solid rgba(38,38,34,.12);background:#fff}
+.review-qr figcaption{margin-top:8px;font-size:.74rem;color:var(--muted2)}
+@media(min-width:700px){
+  .social-band{padding:64px 0 76px}
+  .social-grid{grid-template-columns:1.35fr .9fr;gap:14px;align-items:stretch}
+  .ig-card{grid-template-columns:1fr 1fr;align-items:end;padding:30px}
+  .ig-card-thumbs{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .review-card{grid-template-columns:1fr auto;align-items:end;padding:30px}
+  .review-qr{display:block}
+}
+@media(prefers-color-scheme:dark){.review-card .btn-solid{background:#F5F1E8;border-color:#F5F1E8;color:#1B1C19}}
+
+.contact-reviews{padding:42px 0 56px}
+@media(min-width:700px){.contact-reviews .review-card{max-width:760px;margin-inline:auto}}

@@ -20,7 +20,16 @@ Luego visita `http://localhost:8000/`.
 - `assets/`: estilos, scripts, tipografías, fotografías, videos y documentos.
 - `contacto.html`, `404.html`, `sitemap.xml`, `robots.txt` y `CNAME`: archivos de publicación.
 
-## Estado de esta entrega (V8)
+## Estado de esta entrega (V9.5)
+
+- Portada: bloque final con Instagram y reseñas de Google (botón y QR).
+- Trofeos: foto EEMRI 2026 en la galería.
+- Repuestos: galería de 9 fotos (suma escaneo de montura, modelo y estribos impresos).
+- Contacto: tarjeta de reseñas de Google.
+- Título de la portada con "Un&Co:".
+- Historial completo en VERSION.txt.
+
+## Entrega anterior (V8)
 
 - Base: V7.1 publicada.
 - Un&Co. Lab integrado: aviso en portada bajo las tarjetas de Merch y Trofeos (enlace directo a lab.unyco.pe), sección completa en Merch (#lab) y llamados en Llaveros y Pines.
