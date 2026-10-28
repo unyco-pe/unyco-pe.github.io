@@ -1667,3 +1667,4 @@ video[data-inview]{width:calc(100% + 2px)!important;height:calc(100% + 2px)!impo
 .recent-tag{position:absolute;z-index:1;top:10px;left:10px;padding:5px 10px;border-radius:999px;background:var(--yellow);color:#262622;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 @media(min-width:900px){.recent{padding:96px 0 40px}.recent-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.recent-label{left:12px;right:12px;bottom:12px;padding:12px 14px}.recent-label strong{font-size:1rem}.recent-label span{font-size:.76rem}}
 @media(prefers-reduced-motion:reduce){.recent-card img{transition:none}.recent-card:hover img{transform:none}}
+.hero-pair--solo{grid-template-columns:minmax(0,1fr)}.hero-pair--solo .tile{aspect-ratio:9/16;max-width:360px}.hero-pair--solo video{object-fit:contain;background:#151613}

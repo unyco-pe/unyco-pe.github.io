@@ -20,7 +20,13 @@ Luego visita `http://localhost:8000/`.
 - `assets/`: estilos, scripts, tipografías, fotografías, videos y documentos.
 - `contacto.html`, `404.html`, `sitemap.xml`, `robots.txt` y `CNAME`: archivos de publicación.
 
-## Estado de esta entrega (V9.6)
+## Estado de esta entrega (V9.7)
+
+- Nuevo caso: El pintor de los milagros (proyectos/el-pintor-de-los-milagros.html), con video del elenco con sonido.
+- Portada: "Trabajos recientes" con los 4 casos más nuevos (sale Piezas óseas).
+- Merch: la tarjeta del caso reemplaza la foto de la calabaza en Encargos especiales.
+
+## Entrega anterior (V9.6)
 
 - Nuevo caso: Ministerio del Ambiente (proyectos/minam.html), 47 reconocimientos en teca.
 - Portada: "Trabajos recientes" con los 4 casos más nuevos; sale el bloque UV DTF.
@@ -65,6 +71,7 @@ Cada página abre WhatsApp con una primera línea distinta. Para saber qué pág
 | Hola, vi sus trabajos y tengo una idea para Un&Co. | Trabajos (cierre) |
 | Hola, vi los llaveros de Cantol... | Caso Cantol |
 | Hola, quiero cotizar reconocimientos en teca con Un&Co. | Caso Ministerio del Ambiente |
+| Hola, vi el caso de El pintor de los milagros y quiero cotizar merch con Un&Co. | Caso El pintor de los milagros |
 | Hola, quiero cotizar merch para un evento con Un&Co. | Caso Coolbox |
 | Hola, quiero cotizar regalos en teca de Merch & Gifts con Un&Co. | Merch & Gifts |
 | Hola, necesito una pieza grande para una exhibición o stand... | Caso piezas óseas |

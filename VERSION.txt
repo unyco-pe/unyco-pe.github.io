@@ -1,4 +1,4 @@
-UN&CO. WEB V9.6
+UN&CO. WEB V9.7
 Fecha: 28 de octubre de 2026
 
 Cambios respecto a V3:
@@ -96,4 +96,8 @@ V5:
 - V9.6: nuevo caso proyectos/minam.html (47 reconocimientos en teca para el Ministerio del Ambiente): 3 fotos y 3 videos H.264 sin audio con poster, imagen para compartir og-minam.jpg. Agregado primero en el índice de Trabajos, en "Encargos recientes" de Trofeos y en el sitemap.
 - V9.6: Trofeos: "Encargos recientes" pasa a 3 columnas en pantallas de 1000 px o más (con 3 casos quedaba una fila coja).
 - V9.6: portada: sale el bloque Acabado UV DTF; "Trabajos" pasa a "Trabajos recientes": 4 tarjetas con foto grande (2x2 en celular, 4 en fila en escritorio), la más nueva con etiqueta "Nuevo". Al agregar un caso: entra primero y sale el último.
-- V9.6: se eliminan de site.css las 23 reglas del bloque UV DTF de la portada. Estilos ?v=20261028b; se eliminan también las reglas de la lista anterior de Trabajos.
+- V9.6: se eliminan de site.css las 23 reglas del bloque UV DTF de la portada. Estilos ?v=20261028c; se eliminan también las reglas de la lista anterior de Trabajos.
+- V9.7: nuevo caso proyectos/el-pintor-de-los-milagros.html (llaveros y litofanías como marca aliada de la película, con Bamboo Pictures): 6 fotos, video de agradecimiento del elenco con sonido y controles (excepción a la regla de autoplay sin audio, aprobada por Julián), imagen para compartir og-pintor.jpg. Va primero en Trabajos y en "Trabajos recientes" (sale Piezas óseas de la portada; la etiqueta "Nuevo" pasa a este caso).
+- V9.7: Merch, Encargos especiales: la foto de la calabaza se reemplaza por la tarjeta del caso (el archivo encargo-calabaza.webp queda sin uso).
+- V9.7: caso El pintor de los milagros reescrito: "Marca aliada de El pintor de los milagros", secciones de llaveros, litofanía, avant premiere (equipo en la alfombra y logo en pantalla) y video del elenco con ícono de sonido. Fotos nuevas alfombra.webp y pantalla.webp.
+- V9.7: MINAM: la foto de portada del caso se recorta para que no se vea la sierra del fondo.
