@@ -20,7 +20,14 @@ Luego visita `http://localhost:8000/`.
 - `assets/`: estilos, scripts, tipografías, fotografías, videos y documentos.
 - `contacto.html`, `404.html`, `sitemap.xml`, `robots.txt` y `CNAME`: archivos de publicación.
 
-## Estado de esta entrega (V9.5)
+## Estado de esta entrega (V9.6)
+
+- Nuevo caso: Ministerio del Ambiente (proyectos/minam.html), 47 reconocimientos en teca.
+- Portada: "Trabajos recientes" con los 4 casos más nuevos; sale el bloque UV DTF.
+- Trofeos: "Encargos recientes" en 3 columnas en escritorio.
+- Historial completo en VERSION.txt.
+
+## Entrega anterior (V9.5)
 
 - Portada: bloque final con Instagram y reseñas de Google (botón y QR).
 - Trofeos: foto EEMRI 2026 en la galería.
@@ -57,6 +64,7 @@ Cada página abre WhatsApp con una primera línea distinta. Para saber qué pág
 | Hola, vi sus trabajos y quiero cotizar con Un&Co. | Trabajos |
 | Hola, vi sus trabajos y tengo una idea para Un&Co. | Trabajos (cierre) |
 | Hola, vi los llaveros de Cantol... | Caso Cantol |
+| Hola, quiero cotizar reconocimientos en teca con Un&Co. | Caso Ministerio del Ambiente |
 | Hola, quiero cotizar merch para un evento con Un&Co. | Caso Coolbox |
 | Hola, quiero cotizar regalos en teca de Merch & Gifts con Un&Co. | Merch & Gifts |
 | Hola, necesito una pieza grande para una exhibición o stand... | Caso piezas óseas |

@@ -1,5 +1,5 @@
-UN&CO. WEB V9.5
-Fecha: 16 de octubre de 2026
+UN&CO. WEB V9.6
+Fecha: 28 de octubre de 2026
 
 Cambios respecto a V3:
 - Portada: nueva frase principal, foto de merch reemplazada, sin etiquetas de prioridad.
@@ -92,3 +92,8 @@ V5:
 - V9.5: título de la portada "Un&Co: Merch personalizado y repuestos a medida en Lima" (antes Google lo mostraba como "Un&Co.: ..."). Descripción de Trabajos con "Un&Co:".
 - V9.5: Contacto: tarjeta de reseñas de Google (botón y QR) después de "Ven al taller".
 - V9.5: estilos y scripts ?v=20261016a.
+- V9.5.1: Repuestos sin policarbonato (meta y ficha de materiales); meta description a 152 caracteres. Piezas óseas: "sección abierta" en lugar de "corte de sección".
+- V9.6: nuevo caso proyectos/minam.html (47 reconocimientos en teca para el Ministerio del Ambiente): 3 fotos y 3 videos H.264 sin audio con poster, imagen para compartir og-minam.jpg. Agregado primero en el índice de Trabajos, en "Encargos recientes" de Trofeos y en el sitemap.
+- V9.6: Trofeos: "Encargos recientes" pasa a 3 columnas en pantallas de 1000 px o más (con 3 casos quedaba una fila coja).
+- V9.6: portada: sale el bloque Acabado UV DTF; "Trabajos" pasa a "Trabajos recientes": 4 tarjetas con foto grande (2x2 en celular, 4 en fila en escritorio), la más nueva con etiqueta "Nuevo". Al agregar un caso: entra primero y sale el último.
+- V9.6: se eliminan de site.css las 23 reglas del bloque UV DTF de la portada. Estilos ?v=20261028b; se eliminan también las reglas de la lista anterior de Trabajos.
