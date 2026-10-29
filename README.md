@@ -23,7 +23,7 @@ Luego visita `http://localhost:8000/`.
 ## Estado de esta entrega
 
 - Los archivos del sitio están en la raíz del repositorio.
-- Todos los accesos a Trabajos apuntan explícitamente a `proyectos/index.html`, incluso al abrir el sitio directamente desde el sistema de archivos.
+- Los enlaces internos apuntan a la URL canónica (`./`, `proyectos/`), sin `index.html`, para no duplicar páginas en Google. Para revisar localmente usa `python3 -m http.server`.
 - La navegación principal incluye acceso directo a Trofeos.
 - Merch ocupa la posición principal de la portada.
 - Trofeos aparece en la vitrina inicial, encabeza el catálogo de Merch y protagoniza la portada de Trabajos.
