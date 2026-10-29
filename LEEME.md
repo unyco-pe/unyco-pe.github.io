@@ -20,7 +20,15 @@ Luego visita `http://localhost:8000/`.
 - `assets/`: estilos, scripts, tipografías, fotografías, videos y documentos.
 - `contacto.html`, `404.html`, `sitemap.xml`, `robots.txt` y `CNAME`: archivos de publicación.
 
-## Estado de esta entrega (V9.7)
+## Estado de esta entrega (V9.8)
+
+- SEO: enlaces internos a la URL canónica (sin `index.html`), sitemap con fechas y nombres alternativos de la marca (Unyco, Un y Co, Un and Co) en los datos estructurados de la portada.
+- Pie de página con enlaces a todos los servicios y a Trabajos en las 15 páginas.
+- Llaveros, Pines, Trofeos y Regalos: preguntas nuevas con datos de los casos, el catálogo y el generador. Cada caso enlaza a su servicio.
+- Contacto con dirección y horario del taller. El pintor: llaveros en morado, beige y blanco.
+- Cloudflare: "Always Use HTTPS" activado (http redirige a https).
+
+## Entrega anterior (V9.7)
 
 - Nuevo caso: El pintor de los milagros (proyectos/el-pintor-de-los-milagros.html), con video del elenco con sonido.
 - Portada: "Trabajos recientes" con los 4 casos más nuevos (sale Piezas óseas).

@@ -1672,3 +1672,4 @@ video[data-inview]{width:calc(100% + 2px)!important;height:calc(100% + 2px)!impo
 .footer-nav a{display:inline-flex;align-items:center;min-height:36px}
 .footer-nav a:hover,.footer-nav a[aria-current="page"]{color:var(--ink)}
 .footer-nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.related-links{display:flex;flex-wrap:wrap;gap:12px 28px}
